@@ -36,7 +36,7 @@
 @section('content')
 
 
-    
+    <!--
             <div class="">
     
                     <div class="dataTables_length" id="example1_length">
@@ -48,7 +48,7 @@
                     </select> </label>
             
             </div>
-
+        -->
             <table id="fluxo" class="table table-bordered table-hover dataTable dtr-inline" role="grid" aria-describedby="Fluxo">
                 <thead>
                     <tr >  <!-- role="row" -->
@@ -80,7 +80,7 @@
                 </tbody>
             </table>
   
-       
+    <!--   
 
         <div class="row">
             <div class="col-sm-12 col-md-5">
@@ -115,7 +115,7 @@
                     </ul>
                  </div>
             </div>
-
+        -->
 
 </body>
 

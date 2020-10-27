@@ -257,69 +257,9 @@ return [
             'url'  => 'site/profile/profile',
             'icon' => 'fas fa-fw fa-user',
         ],
-        [
-            'text' => 'change_password',
-            'url'  => 'admin/settings',
-            'icon' => 'fas fa-fw fa-lock',
-        ],
-        [
-            'text'    => 'multilevel',
-            'icon'    => 'fas fa-fw fa-share',
-            'submenu' => [
-                [
-                    'text' => 'level_one',
-                    'url'  => '#',
-                ],
-                [
-                    'text'    => 'level_one',
-                    'url'     => '#',
-                    'submenu' => [
-                        [
-                            'text' => 'level_two',
-                            'url'  => '#',
-                        ],
-                        [
-                            'text'    => 'level_two',
-                            'url'     => '#',
-                            'submenu' => [
-                                [
-                                    'text' => 'level_three',
-                                    'url'  => '#',
-                                ],
-                                [
-                                    'text' => 'level_three',
-                                    'url'  => '#',
-                                ],
-                            ],
-                        ],
-                    ],
-                ],
-                [
-                    'text' => 'level_one',
-                    'url'  => '#',
-                ],
-            ],
-        ],
-        ['header' => 'Controle Financeiro'],
-        [
-            'text'       => 'Saldo',
-            'icon_color' => 'green',
-            'url'  => 'admin/balance',
-            'icon'        => 'fas fa-money-bill-wave',
-        ],
-        [
-            'text'       => 'Deposito',
-            'icon_color' => 'yellow',
-            'url'  => 'admin/balance/deposit',
-            'icon'        => 'fas fa-money-bill',
-        ],
-
-        [
-            'text'       => 'Historic',
-            'icon_color' => 'green',
-            'url'  => 'admin/balance/historic',
-            'icon'        => 'fas fa-landmark',
-        ],
+        
+        ['header' => 'Registrar Receitas e Despesas'],
+        
 
         [
             'text'       => 'Despesa',
@@ -343,6 +283,26 @@ return [
             'url'        => 'financeiro/fluxoDeCaixa',
             'icon'        => 'fas fa-chart-line', 
 
+        ],
+        ['header' => 'Conta a Pagar e Receber'],
+        [
+            'text'       => 'Contas a Receber',
+            'icon_color' => 'green',
+            'url'  => 'admin/balance',
+            'icon'        => 'fas fa-money-bill-wave',
+        ],
+        [
+            'text'       => 'Contas a Pagar',
+            'icon_color' => 'yellow',
+            'url'  => 'admin/balance/deposit',
+            'icon'        => 'fas fa-money-bill',
+        ],
+
+        [
+            'text'       => 'Previsões',
+            'icon_color' => 'green',
+            'url'  => 'admin/balance/historic',
+            'icon'        => 'fas fa-landmark',
         ],
     ],
 
