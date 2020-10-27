@@ -54,11 +54,12 @@
         <form method="POST" action="{{ route('despesa.store')}}">
             <div class="form-group">
                 {!! csrf_field() !!}
+                <div class='table-responsive'>
 
-                <table id="example1" class="table table-bordered table-striped dataTable dtr-inline collapsed" role="grid" aria-describedby="example1_info">
+                <table id="example1" class="table table-sm table-bordered table-striped dataTable dtr-inline collapsed" role="grid" aria-describedby="example1_info">
                     <thead>
-                        <tr role="">
-                            <th class="sorting_asc" tabindex="0" aria-controls="" rowspan="1" colspan="1" aria-sort="ascending" aria-label="Rendering engine: activate to sort column descending">Data</th>
+                        <tr>
+                            <th class="sorting_asc" tabindex="0" aria-controls="" rowspan="0" colspan="1"  aria-label="">Data</th>
                             <th class="sorting" tabindex="0" aria-controls="example1" rowspan="1" colspan="1" aria-label="Browser: activate to sort column ascending">Origem</th>
                             <th class="sorting" tabindex="0" aria-controls="example1" rowspan="1" colspan="1" aria-label="Platform(s): activate to sort column ascending">Despesa</th>
                             <th class="sorting" tabindex="0" aria-controls="example1" rowspan="1" colspan="1" aria-label="Engine version: activate to sort column ascending">Valor</th>
@@ -87,10 +88,10 @@
                      -->
 
                   
-                        <tr>
+                     <tr>
                            
-                        <th rowspan="1" colspan="1">
-                            <input type="date" name="date"  class="form-control py-3">
+                        <th rowspan="1" colspan="1">{{date('d/m/Y')}}
+                       <!--     <input type="date" name="date"  class="form-control py-3"> -->
                         </th>
                         <th rowspan="1" colspan="1">
                             <input type="txt" name="origem"  class="form-control py-3">
@@ -107,6 +108,8 @@
                        
                     </tfoot>
                 </table>
+                
+            </div>
 
             <div class="form-group">
                 <button type="submit" class="btn btn-success btn-block">Registrar a despesa</button>

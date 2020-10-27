@@ -52,7 +52,8 @@
             <table id="fluxo" class="table table-bordered table-hover dataTable dtr-inline" role="grid" aria-describedby="Fluxo">
                 <thead>
                     <tr >  <!-- role="row" -->
-                        <th class="sorting_asc" tabindex="0" aria-controls="example2" rowspan="1" colspan="1" aria-label="Rendering engine: activate to sort column descending" aria-sort="ascending">ID</th>
+                  <!--      <th class="sorting_asc" tabindex="0" aria-controls="example2" rowspan="1" colspan="1" aria-label="Rendering engine: activate to sort column descending" aria-sort="ascending">ID</th>
+                  -->
                         <th class="sorting" tabindex="0" aria-controls="example2" rowspan="1" colspan="1" aria-label="Browser: activate to sort column ascending">Data</th>
                         <th class="sorting" tabindex="0" aria-controls="example2" rowspan="1" colspan="1" aria-label="Platform(s): activate to sort column ascending">Descrição</th>
                         <th class="sorting" tabindex="0" aria-controls="example2" rowspan="1" colspan="1" aria-label="Engine version: activate to sort column ascending">Valor</th>
@@ -62,7 +63,8 @@
                 <tbody>
                     @forelse($despesas as $despesa)
                         <tr>
-                            <td>{{ $despesa->id }}</td>  
+                       <!--     <td>{{ $despesa->id }}</td>  
+                       -->
                             <th >{{ $despesa->date }}</th>
                             <td>{{ $despesa->descricao }}</td>
                             @if( $despesa->type == "D")

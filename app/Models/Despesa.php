@@ -76,6 +76,7 @@ class Despesa extends Model
 
         $afterValor = $lastValor - $data['valor'];
 
+
       //  dd($data['valor'],$lastValor,$afterValor);
        
             $despesa = auth()->user()->despesa()->create([
@@ -83,7 +84,7 @@ class Despesa extends Model
                 'type'          => 'D',
                 'origem'        => $data['origem'], 
                 'descricao'     => $data['descricao'],
-                'date'          => $data['date'],
+                'date'          => date('Y/m/d'),
                 'total_before'  => $lastValor,
                 'total_after'   => $afterValor,
                 'valor'         => $data['valor'],
@@ -155,7 +156,7 @@ class Despesa extends Model
                 'type'          => 'R',
                 'origem'        => $data['origem'], 
                 'descricao'     => $data['descricao'],
-                'date'          => $data['date'],
+                'date'          => date('Y/m/d'),
                 'total_before'  => $lastValor,
                 'total_after'   => $afterValor,
                 'valor'         => $data['valor'],

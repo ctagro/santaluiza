@@ -89,8 +89,8 @@
                   
                         <tr>
                            
-                        <th rowspan="1" colspan="1">
-                            <input type="date" name="date"  class="form-control py-3">
+                         <th rowspan="1" colspan="1">{{date('d/m/Y')}}
+                                <!--     <input type="date" name="date"  class="form-control py-3"> -->
                         </th>
                         <th rowspan="1" colspan="1">
                             <input type="txt" name="origem"  class="form-control py-3">
