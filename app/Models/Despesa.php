@@ -101,9 +101,9 @@ class Despesa extends Model
                 'origem'        => $data['origem'], 
                 'descricao'     => $data['descricao'],
                 'total_before'   => 0,
-                'total_after'    => $data['valor'],
-                'date'          => $data['date'],
-                'valor'         => $data['valor'],
+                'total_after'    => -$data['valor'],
+                'date'          => date('Y/m/d'),
+                'valor'         => -$data['valor'],
                 'validade'      => 'S'  
                 ]);
         
@@ -174,7 +174,7 @@ class Despesa extends Model
                 'descricao'     => $data['descricao'],
                 'total_before'   => 0,
                 'total_after'    => $data['valor'],
-                'date'          => $data['date'],
+                'date'          => date('Y/m/d'),
                 'valor'         => $data['valor'],
                 'validade'      => 'S'  
                 ]);
