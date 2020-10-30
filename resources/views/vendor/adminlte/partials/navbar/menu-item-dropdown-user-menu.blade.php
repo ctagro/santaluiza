@@ -24,11 +24,11 @@
         @endif
 
         @if (auth()->user()->image != null)
-         <img src="{{ url('storage/users/'.auth()->user()->image)." "}}" alt="{{ auth()->user()->name }}" height="30" width="30" > 
+         <img src="{{ url('vendor/adminlte/dist/img/'.auth()->user()->image)." "}}" alt="{{ auth()->user()->name }}" height="30" width="30" > 
         @endif
     
         <span @if(config('adminlte.usermenu_image')) class="d-none d-md-inline" @endif>
-            {{ Auth::user()->name }}
+            {{ Auth::user()->name }} 
         </span>
     </a>
 
