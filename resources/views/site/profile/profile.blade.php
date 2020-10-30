@@ -35,6 +35,7 @@
         <input type="password" class="form-control" id="password" name='password' placeholder="Senha">
     </div>
 
+<<<<<<< HEAD
     <div class="form-group">
         @if (auth()->user()->image != null)
 <<<<<<< HEAD
@@ -43,10 +44,16 @@
   <!--       <img src="{{ url('storage/users/'.auth()->user()->image)}}" class="img-circle elevation-2" alt="{{ auth()->user()->name }}" style="max-width: 50px;"> -->
 >>>>>>> 0e5bf7dceb42b9f2daa1b38f63c050b896668732
         @endif
+=======
+<!--    <div class="form-group">
+        if (auth()->user()->image != null) @
+       <img src="{url('storage/users/'.auth()->user()->image)}}" class="img-circle elevation-2" alt="{{ auth()->user()->name }}" style="max-width: 50px;"> 
+        endif @
+>>>>>>> e05d4b3d9abecee97aa5bd4c75c4e88174fbd13f
         <label for="image">Imagem</label>
         <input type="file" class="form-control"  name='image' >
     </div>
-   
+-->
     <button type="submit" class="btn btn-primary">Atualizar Perfil</button>
     </form>
 @stop
