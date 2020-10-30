@@ -25,7 +25,7 @@
 
         @if (auth()->user()->image != null)
        
-         <img src="{{ url('storage/users/imagem_user_1.jpeg')}}" class="img-circle elevation-2" alt="{{ auth()->user()->name }}" height="30" width="30" > 
+         <img src="{{ url('img/pimentao_1.jpg')}}" class="img-circle elevation-2" alt="{{ auth()->user()->name }}" height="30" width="30" > 
          
         @endif
     
