@@ -37,7 +37,11 @@
 
     <div class="form-group">
         @if (auth()->user()->image != null)
+<<<<<<< HEAD
          <img src="{{ url('storage/users/imagem_user_1.jpeg')}}" alt="{{ auth()->user()->name }}" style="max-width: 50px;"> 
+=======
+  <!--       <img src="{{ url('storage/users/'.auth()->user()->image)}}" class="img-circle elevation-2" alt="{{ auth()->user()->name }}" style="max-width: 50px;"> -->
+>>>>>>> 0e5bf7dceb42b9f2daa1b38f63c050b896668732
         @endif
         <label for="image">Imagem</label>
         <input type="file" class="form-control"  name='image' >
