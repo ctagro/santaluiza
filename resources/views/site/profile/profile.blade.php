@@ -37,7 +37,7 @@
 
     <div class="form-group">
         @if (auth()->user()->image != null)
-         <img src="{{ url('storage/users/'.auth()->user()->image)}}" class="img-circle elevation-2" alt="{{ auth()->user()->name }}" style="max-width: 50px;"> 
+  <!--       <img src="{{ url('storage/users/'.auth()->user()->image)}}" class="img-circle elevation-2" alt="{{ auth()->user()->name }}" style="max-width: 50px;"> -->
         @endif
         <label for="image">Imagem</label>
         <input type="file" class="form-control"  name='image' >
