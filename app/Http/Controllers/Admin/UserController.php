@@ -28,7 +28,7 @@ class UserController extends Controller
 
         $data['image'] = $user->image;
 
-        // verificando se carrgou uma imagem com o hasFile()
+        // verificando se carregou uma imagem com o hasFile()
         // e se o arquivo é valido com o isValid
         // antes de carregar a imagem
 
