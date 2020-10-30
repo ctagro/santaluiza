@@ -36,6 +36,7 @@
     </div>
 
 <<<<<<< HEAD
+<<<<<<< HEAD
     <div class="form-group">
         @if (auth()->user()->image != null)
 <<<<<<< HEAD
@@ -50,10 +51,16 @@
        <img src="{url('storage/users/'.auth()->user()->image)}}" class="img-circle elevation-2" alt="{{ auth()->user()->name }}" style="max-width: 50px;"> 
         endif @
 >>>>>>> e05d4b3d9abecee97aa5bd4c75c4e88174fbd13f
+=======
+ <div class="form-group">
+        @if (auth()->user()->image != null)
+       <img src="{{url('storage/users/'.auth()->user()->image)}}" class="img-circle elevation-2" alt="{{ auth()->user()->name }}" style="max-width: 50px;"> 
+              @endif
+>>>>>>> c0773947dbcadffbeb7573f341044f4cd1b6d5e8
         <label for="image">Imagem</label>
         <input type="file" class="form-control"  name='image' >
     </div>
--->
+
     <button type="submit" class="btn btn-primary">Atualizar Perfil</button>
     </form>
 @stop
