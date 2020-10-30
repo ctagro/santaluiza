@@ -10,7 +10,7 @@ body, html {
 }
 
 .hero-image {
-  background-image: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), url("../img/estufa_4.jpg");
+  background-image: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), url("");
   height: 100%;
   background-position: center;
   background-repeat: no-repeat;
@@ -54,6 +54,7 @@ body, html {
     <h1 style="font-size:50px">Fazenda Santa Luiza</h1>
     <h1></h1>
     <h2>Controle financeiro e de produção</h2>
+    <img src="{{ asset(config('adminlte.logo_img')) }}" height="50">
     <h1></h1>
     <div class="relative flex items-top justify-center min-h-screen bg-gray-100 dark:bg-gray-900 sm:items-center sm:pt-0">
         @if (Route::has('login'))
@@ -69,11 +70,14 @@ body, html {
                 @endif
          
         @endif
+  
+
 
   </div>
+  <img src="{{ asset(config('pimentao_4.jpg')) }}" height="100">
 </div>
 
-<p>Page Content..</p>
+<img src="{{ asset(config('pimentao_4.jpg')) }}" height="100">
 
 </body>
 </html>
