@@ -34,17 +34,19 @@ class UserController extends Controller
         // antes de carregar a imagem
 
         if ($request->hasFile('image') && $request->file('image')->isValid()) {
-            if ($user->image){
-                $nameFile = $user->image; //capitura o nome da imagem já existente
-            }
-            else {//cria um nome para a imagem concatenado id e nome do user
+          
+          //cria um nome para a imagem concatenado id e nome do user
                     $name = 'imagem_user_'.$user->id;   // tirar os espacos com o kebab_case
                     $extenstion = $request->image->extension(); // reguperar a extensao do arquivo de imagem
                     $nameFile = "{$name}.{$extenstion}"; // concatenando
                     $data['image'] = $nameFile;
-            }
-            $upload = $request->image->storeAs('users', $nameFile); // fazendo o upload
-                                                // users será u nome da pasta que armazena a imagem
+       
+
+
+            $upload = $request->file('image')->storeAs('users', $nameFile); // fazendo o upload
+
+
+                                                // users será o nome da pasta que armazena a imagem
 
             if (!$upload)
                 return redirect()
