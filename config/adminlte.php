@@ -45,8 +45,8 @@ return [
     |
     */
 
-    'logo' => '<b>Financeiro Agro</b>',
-    'logo_img' => 'vendor/adminlte/dist/img/pimentao_4.jpg',
+    'logo' => '<b>Faz. Santa Luiza</b>',
+    'logo_img' => 'vendor/adminlte/dist/img/dolar_e_soja.jpeg',
     'logo_img_class' => 'brand-image img-circle elevation-3',
     'logo_img_xl' => null,
     'logo_img_xl_class' => 'brand-image-xs',
