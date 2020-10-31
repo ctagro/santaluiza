@@ -30,7 +30,10 @@
 @section('title', 'Receita')
 
 @section('content_header')
-    <h1>Fluxo de Caixa</h1>
+<div class="row">     
+    <img class="card-img-top img-responsive img-thumbnail" src="{{ url('img/cards/fluxo_de_caixa.jpeg')}}"  style="height: 50px; width: 50px;"alt="Imagem" >
+   <h1 class="ml-2  text-center">Fluxo de Caixa</h1>
+</div>
 @stop
 
 @section('content')

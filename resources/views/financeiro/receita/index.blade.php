@@ -30,7 +30,10 @@
 @section('title', 'Receita')
 
 @section('content_header')
-    <h1>Registrar Receitas</h1>
+<div class="row">     
+    <img class="card-img-top img-responsive img-thumbnail" src="{{ url('img/cards/receitas.jpeg')}}"  style="height: 50px; width: 50px;"alt="Imagem" >
+   <h1 class="ml-2  text-center">Registrar Receita</h1>
+</div>
 @stop
 
 @section('content')
