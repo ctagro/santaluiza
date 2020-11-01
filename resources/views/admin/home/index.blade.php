@@ -21,7 +21,7 @@
         <a href="{{ route('despesa.index') }}" class="">
             <div class="card">
                 <h5 class="mt-2 text-center">Registrar Despesas</h5>
-                 <img class="card-img-top img-responsive img-thumbnail" src="{{ url('img/cards/despesas.jpeg')}}"  style="height: 200px;"alt="Espaço reservado para exibição de imagens" >
+                 <img class="card-img-top img-responsive img-thumbnail" src="{{ asset('img/cards/despesas.jpeg')}}"  style="height: 200px;"alt="Espaço reservado para exibição de imagens" >
                 <div class="card-body">
                     <h6 class="text-center">Fazenda Santa Luiza</h6>
                     <hr/>
@@ -36,7 +36,7 @@
             <a href="{{ route('receita.index') }}" class="">
                 <div class="card">
                     <h5 class="mt-2 text-center">Registrar Receitas</h5>           
-                        <img class="card-img-top img-responsive img-thumbnail" src="{{ url('img/cards/receitas.jpeg')}}"  style="height: 200px;" alt="Espaço para exibição de imagem" >              
+                        <img class="card-img-top img-responsive img-thumbnail" src="{{ asset('img/cards/receitas.jpeg')}}"  style="height: 200px;" alt="Espaço reservado para exibição de imagem" >              
                     <div class="card-body">
                         <h6 class="text-center">Fazenda Santa Luiza</h6>
                         <hr/>
@@ -51,7 +51,7 @@
             <div class="card">
                 <h5 class="mt-2 text-center">Fluxo de Caixa</h5>
     
-                    <img class="card-img-top img-responsive img-thumbnail" src="{{ url('img/cards/fluxo_de_caixa.jpeg')}}"  style="height: 200px;" alt="Espaço para exibição de imagem" >
+                    <img class="card-img-top img-responsive img-thumbnail" src="{{ asset('img/cards/fluxo_de_caixa.jpeg')}}"  style="height: 200px;" alt="Espaço reservado para exibição de imagem" >
                   
                 <div class="card-body">
                     <h6 class="text-center">Fazenda Santa Luiza</h6>
@@ -67,7 +67,7 @@
             <div class="card">
                 <h5 class="mt-2 text-center">Contas a Pagar</h5>
          
-                    <img class="card-img-top img-responsive img-thumbnail" src="{{ url('img/cards/contas_a_pagar.png')}}"  style="height: 200px;" alt="Espaço para exibição de imagem" >
+                    <img class="card-img-top img-responsive img-thumbnail" src="{{ asset('img/cards/contas_a_pagar.png')}}"  style="height: 200px;" alt="Espaço para reservado exibição de imagem" >
                
                 <div class="card-body">
                     <h6 class="text-center">Fazenda Santa Luiza</h6>
@@ -83,7 +83,7 @@
             <div class="card">
                 <h5 class="mt-2 text-center">Contas a Receber</h5>
  
-                    <img class="card-img-top img-responsive img-thumbnail" src="{{ url('img/cards/contas_a_receber.jpeg')}}"  style="height: 200px;" alt="Espaço para exibição de imagem" >
+                    <img class="card-img-top img-responsive img-thumbnail" src="{{ asset('img/cards/contas_a_receber.jpeg')}}"  style="height: 200px;" alt="Espaço para reservado exibição de imagem" >
               
                 <div class="card-body">
                     <h6 class="text-center">Fazenda Santa Luiza</h6>
@@ -99,7 +99,7 @@
             <div class="card">
                 <h5 class="mt-2 text-center">Fluxo de Caixa Futuro</h5>
    
-                    <img class="card-img-top img-responsive img-thumbnail" src="{{ url('img/cards/fluxo_futuro.jpeg')}}"  style="height: 200px;" alt="Espaço para exibição de imagem" >
+                    <img class="card-img-top img-responsive img-thumbnail" src="{{ asset('img/cards/fluxo_futuro.jpeg')}}"  style="height: 200px;" alt="Espaço para reservado exibição de imagem" >
                 <div class="card-body">
                     <h6 class="text-center">Fazenda Santa Luiza</h6>
                     <hr/>
