@@ -31,7 +31,7 @@
 
 @section('content_header')  
 <div class="row">     
-     <img class="card-img-top img-responsive img-thumbnail" src="{{ url('img/cards/despesas.jpeg')}}"  style="height: 50px; width: 50px;"alt="Imagem" >
+     <img class="card-img-top img-responsive img-thumbnail" src="{{ asset('img/cards/despesas.jpeg')}}"  style="height: 50px; width: 50px;"alt="Imagem" >
     <h1 class="ml-2  text-center">Registrar Despesas</h1>
 </div>
 @stop

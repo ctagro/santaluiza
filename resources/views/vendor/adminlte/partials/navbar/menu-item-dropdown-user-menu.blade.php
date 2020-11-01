@@ -25,6 +25,7 @@
 
  
         <span @if(config('adminlte.usermenu_image')) class="d-none d-md-inline" @endif>
+            <img src="{{ asset('storage/users/'.auth()->user()->image)}}" class="img-circle elevation-2"  height="30" width="30" > 
             {{ Auth::user()->name }} 
         </span>
     </a>
