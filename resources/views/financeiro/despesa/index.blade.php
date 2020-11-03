@@ -57,6 +57,8 @@
         <form method="POST" action="{{ route('despesa.store')}}">
             <div class="form-group">
                 {!! csrf_field() !!}
+
+
                 <div class='table-responsive'>
 
                 <table id="example1" class="table table-sm table-bordered table-striped dataTable dtr-inline collapsed" role="grid" aria-describedby="example1_info">
@@ -75,49 +77,59 @@
 
                             @if( $despesa->type == "D")
                                 <tr>
-                                    <td>{{ $despesa->date }}</td>  
-                                    <td>{{ $despesa->origem($despesa->origem) }}</td>
-                                    <td>{{ $despesa->descricao }}</td>
-                                    <td>{{ number_format($despesa->valor, 2 , ',', '.')  }}</td>
+                                    <td class="text-sm">{{ $despesa->date }}</td>  
+                                    <td class="text-sm">{{ $despesa->origem($despesa->origem) }}</td>
+                                    <td class="text-sm">{{ $despesa->descricao }}</td>
+                                    <td class="text-sm">{{ number_format($despesa->valor, 2 , ',', '.')  }}</td>
                                 </tr>
                             @endif
                             @empty
-                        @endforelse                    
+                        @endforelse                  
                     </tbody>
-                    <tfoot>
-
-                     <!--   <input type="hidden" name="id" value="{$endereco->id }}" class="form-control py-3"> 
-                        <input type="hidden" name="user_id" value="{$endereco->user_id}}" class="form-control py-3">
-                     -->
-
-                  
-                     <tr>
-                           
-                        <th rowspan="1" colspan="1">{{date('d/m/Y')}}
-                       <!--     <input type="date" name="date"  class="form-control py-3"> -->
-                        </th>
-                        <th rowspan="1" colspan="1">
-                            <input type="txt" name="origem"  class="form-control py-3">
-                        </th>
-                        <th rowspan="1" colspan="1">
-                            <input type="txt" name="descricao"  class="form-control py-3">
-                        </th>
-                        <th rowspan="1" colspan="1">
-                            <input type="number" name="valor"  class="form-control py-3">
-                        </th>
-                        </tr>
-                    
- 
-                       
-                    </tfoot>
+        
                 </table>
                 
             </div>
 
-            <div class="form-group">
-                <button type="submit" class="btn btn-danger btn-block">Registrar a despesa</button>
+            <p class="text-right"> <a href="{{ url('/home') }}" class="text-right">Voltar </a> </p>
+           
+            <form method="POST" action="{{ route('despesa.store')}}">
+                <div class="form-group">
+                    {!! csrf_field() !!}
+         
+            <div class="form-group in-line">
+                <input type="hidden" value="{{date('d/m/Y')}}" class="form-control" id="data" name='data' placeholder="Data">
             </div>
+            <div class="form-group row">
+                <!--     <input type="date" name="date"  class="form-control py-3"> -->
+                <!--    <label for="name">Origem</label>  -->
+                     <input type="txt" name="origem"  class="form-control py-3 " placeholder="Origem">       
+                    @if($errors->has('origem'))
+                        <h6 class="text-danger" >Digite a Origem</h6> 
+                    @endif
+                </div>
+                    
+                 <div class="form-group row">
+                     <input type="txt" name="descricao"  class="form-control py-3" placeholder="Descrição">
+                     @if($errors->has('descricao'))
+                         <h6 class="text-danger" >Digite a Descrição</h6> 
+                     @endif
+                    </div>
+                 <div class="form-group row">
+                  <input type="number" name="valor"  class="form-control py-3" placeholder="Valor da despesa">
+                    @if($errors->has('valor'))
+                        <h6 class="text-danger" >Digite o valor</h6> 
+                    @endif
+                </div> 
+            </div>
+                </div> 
+
+                <div class="form-group">
+                    <button type="submit" class="btn btn-danger btn-block">Registrar a despesa</button>
+                </div>
+            <a href="#" id="ancora"></a>
         </form>
+
 
 <!--        <div class="row">
             <div class="col-sm-12 col-md-5">
@@ -170,6 +182,9 @@
 <script src="../../dist/js/adminlte.min.js"></script>
 <!-- AdminLTE for demo purposes -->
 <script src="../../dist/js/demo.js"></script>
+<script>
+    window.location.href='#ancora';
+</script>
 <!-- page script -->
 
 <script>

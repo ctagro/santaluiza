@@ -52,7 +52,10 @@
             
             </div>
         -->
-            <table id="fluxo" class="table table-bordered table-hover dataTable dtr-inline" role="grid" aria-describedby="Fluxo">
+
+        <div class='table-responsive'>
+
+            <table id="fluxo" class="table table-sm table-bordered table-striped dataTable dtr-inline collapsed" role="grid" aria-describedby="Fluxo">
                 <thead>
                     <tr >  <!-- role="row" -->
                   <!--      <th class="sorting_asc" tabindex="0" aria-controls="example2" rowspan="1" colspan="1" aria-label="Rendering engine: activate to sort column descending" aria-sort="ascending">ID</th>
@@ -66,23 +69,25 @@
                 <tbody>
                     @forelse($despesas as $despesa)
                         <tr>
-                       <!--     <td>{{ $despesa->id }}</td>  
-                       -->
-                            <th >{{ $despesa->date }}</th>
-                            <td>{{ $despesa->descricao }}</td>
+                     
+                            <th class="text-sm" >{{ $despesa->date }}</th>
+                            <td class="text-sm">{{ $despesa->descricao }}</td>
                             @if( $despesa->type == "D")
-                                 <td>{{ number_format((-1 * $despesa->valor), 2 , ',', '.')  }}</td>
+                                 <td class="text-sm">{{ number_format((-1 * $despesa->valor), 2 , ',', '.')  }}</td>
                             @else
-                                 <td>{{ number_format($despesa->valor, 2 , ',', '.')  }}</td>
+                                 <td class="text-sm" >{{ number_format($despesa->valor, 2 , ',', '.')  }}</td>
                             @endif
-                            <td>{{ number_format($despesa->total_after, 2 , ',', '.')  }}</td>
+                            <td class="text-sm" >{{ number_format($despesa->total_after, 2 , ',', '.')  }}</td>
 
                         </tr>
                         @empty
                     @endforelse                    
                 </tbody>
             </table>
-  
+            <a href="#" id="ancora"></a>
+
+            <p class="text-right"> <a href="{{ url('/home') }}" class="text-right">Voltar </a> </p>
+        </div>
     <!--   
 
         <div class="row">
@@ -136,6 +141,9 @@
 <script src="../../dist/js/adminlte.min.js"></script>
 <!-- AdminLTE for demo purposes -->
 <script src="../../dist/js/demo.js"></script>
+<script>
+    window.location.href='#ancora';
+</script>
 <!-- page script -->
 
 <script>

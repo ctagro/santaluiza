@@ -45,11 +45,10 @@ class UserController extends Controller
 
             $upload = $request->file('image')->storeAs('users', $nameFile); // fazendo o upload
 
-
                                                 // users será o nome da pasta que armazena a imagem
 
             if (!$upload)
-                return redirect()
+                return redirect() 
                             ->back()
                             ->with('error', 'Falha ao fazer o upload');
 

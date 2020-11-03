@@ -6,6 +6,7 @@ use App\Http\Controllers\Controller;
 use App\Models\Despesa;
 use Illuminate\Http\Request;
 use App\User;
+use Illuminate\Support\Facades\Validator;
 
 class DespesaController extends Controller
 {
@@ -44,7 +45,7 @@ class DespesaController extends Controller
     {
         // instaciando $despesa com objeto do Model Despesa
 
-        
+        $data = $this->validateRequest();
         
         $despesa = new despesa();
 
@@ -137,5 +138,17 @@ class DespesaController extends Controller
 
         return  view('financeiro/fluxodecaixa', compact('despesas', 'types' , 'dataForm'));
 
+    }
+
+    private function validateRequest() 
+    {
+
+        return request()->validate([
+
+               'origem'        => 'required', 
+               'descricao'     => 'required',
+               'valor'         => 'required',
+
+       ]);
     }
 }

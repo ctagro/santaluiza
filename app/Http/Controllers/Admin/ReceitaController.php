@@ -25,7 +25,7 @@ class ReceitaController extends Controller
     {
         // instaciando $despesa com objeto do Model Despesa
 
-        
+        $data = $this->validateRequest();
         
         $receita = new despesa();
 
@@ -48,5 +48,16 @@ class ReceitaController extends Controller
 
     }
     
+    private function validateRequest() 
+    {
+
+        return request()->validate([
+
+               'origem'        => 'required', 
+               'descricao'     => 'required',
+               'valor'         => 'required',
+
+       ]);
+    }
 
 }
