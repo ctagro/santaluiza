@@ -50,7 +50,7 @@
                     <div class="principal col-md-8">
                         <div class="row justify-content-center">
 
-                            <form action="/origems/store" method="POST" enctype="multipart/form-data" class="col-12">
+                            <form action="{{ route('origens.store') }}" method="POST" enctype="multipart/form-data" class="col-12">
 
                                 @method('POST')
                                 @include('origems.form')
