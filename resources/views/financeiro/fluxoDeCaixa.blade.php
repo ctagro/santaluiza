@@ -61,6 +61,7 @@
                   <!--      <th class="sorting_asc" tabindex="0" aria-controls="example2" rowspan="1" colspan="1" aria-label="Rendering engine: activate to sort column descending" aria-sort="ascending">ID</th>
                   -->
                         <th class="sorting" tabindex="0" aria-controls="example2" rowspan="1" colspan="1" aria-label="Browser: activate to sort column ascending">Data</th>
+                        <th class="sorting" tabindex="0" aria-controls="example2" rowspan="1" colspan="1" aria-label="Platform(s): activate to sort column ascending">Área</th>
                         <th class="sorting" tabindex="0" aria-controls="example2" rowspan="1" colspan="1" aria-label="Platform(s): activate to sort column ascending">Descrição</th>
                         <th class="sorting" tabindex="0" aria-controls="example2" rowspan="1" colspan="1" aria-label="Engine version: activate to sort column ascending">Valor</th>
                         <th class="sorting" tabindex="0" aria-controls="example2" rowspan="1" colspan="1" aria-label="Engine version: activate to sort column ascending">Saldo</th>
@@ -71,6 +72,7 @@
                         <tr>
                      
                             <th class="text-sm" >{{ $despesa->date }}</th>
+                            <th class="text-sm" >{{ $despesa->origem->codigo }}</th>
                             <td class="text-sm">{{ $despesa->descricao }}</td>
                             @if( $despesa->type == "D")
                                  <td class="text-sm">{{ number_format((-1 * $despesa->valor), 2 , ',', '.')  }}</td>

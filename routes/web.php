@@ -53,3 +53,14 @@ Auth::routes();
 
 
 Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home.admin');
+
+
+// CRUD origem
+
+Route::get('/origems/create', [App\Http\Controllers\Admin\OrigemsController::class,'create'])->name('origems.create');
+Route::post('/origems/store', [App\Http\Controllers\Admin\OrigemsController::class,'store'])->name('origems.store');
+Route::get('/origems', [App\Http\Controllers\Admin\OrigemsController::class,'index'])->name('origems.index');
+Route::get('origems/{origem}', [App\Http\Controllers\Admin\OrigemsController::class,'show'])->name('origems.show');
+Route::get('origems/{origem}/edit', [App\Http\Controllers\Admin\OrigemsController::class,'edit'])->name('origems.edit');
+Route::patch('origems/{origem}', [App\Http\Controllers\Admin\OrigemsController::class,'update'])->name('origems.update');
+Route::delete('/origems/{origem}', [App\Http\Controllers\Admin\OrigemsController::class,'destroy'])->name('origems.destroy');

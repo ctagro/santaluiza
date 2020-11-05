@@ -18,7 +18,7 @@ class Despesa extends Model
     
         'user_id',
         'type',
-        'origem', 
+        'origem_id', 
         'descricao',
         'date',
         'total_before',
@@ -39,24 +39,14 @@ class Despesa extends Model
          return Carbon::parse($value)->format('d/m/Y');
      }
 
+     public function origem()
+    {
+        return $this -> belongsTo(Origem::class);
+    }
+
      
 
-     public function origem($origem = null) // null torna a variavel opcional
-     {
-         $origems = [
-             'A1' => 'Abacate área 1',
-             'A2' => 'Abacate área 2',
-             'P1' => 'Pimentão estufa 1',
-             'P2' => 'Pimentão estufa 2',
-             'P3' => 'Pimentão estufa 3',
-             'C1' => 'Obra da casa',
-         ];
-
-         if (!$origem) // se nao for passado o parametro passa o array retorna todos os campos
-            return $origems;
-
-        return $origems[$origem]; // retorna valor correspondende do array
-     }
+     
 
       /*********************************
      * Registrando as despesas e os saldos
@@ -82,7 +72,7 @@ class Despesa extends Model
             $despesa = auth()->user()->despesa()->create([
 
                 'type'          => 'D',
-                'origem'        => $data['origem'], 
+                'origem_id'     => $data['origem_id'], 
                 'descricao'     => $data['descricao'],
                 'date'          => date('Y/m/d'),
                 'total_before'  => $lastValor,
@@ -91,21 +81,22 @@ class Despesa extends Model
                 'validade'      => 'S'
 
          ]);
-
+     //    dd($data['valor']);
             }
 
          else{
 
             $despesa = auth()->user()->despesa()->create([
                 'type'          => 'D',
-                'origem'        => $data['origem'], 
+                'origem_id'        => $data['origem_id'], 
                 'descricao'     => $data['descricao'],
                 'total_before'   => 0,
-                'total_after'    => -$data['valor'],
+                'total_after'    => $data['valor'],
                 'date'          => date('Y/m/d'),
-                'valor'         => -$data['valor'],
+                'valor'         => $data['valor'],
                 'validade'      => 'S'  
                 ]);
+               
         
     }
        if($despesa){
@@ -154,7 +145,7 @@ class Despesa extends Model
             $despesa = auth()->user()->despesa()->create([
 
                 'type'          => 'R',
-                'origem'        => $data['origem'], 
+                'origem_id'        => $data['origem_id'], 
                 'descricao'     => $data['descricao'],
                 'date'          => date('Y/m/d'),
                 'total_before'  => $lastValor,
@@ -170,10 +161,10 @@ class Despesa extends Model
 
             $despesa = auth()->user()->despesa()->create([
                 'type'          => 'R',
-                'origem'        => $data['origem'], 
+                'origem_id'        => $data['origem_id'], 
                 'descricao'     => $data['descricao'],
                 'total_before'   => 0,
-                'total_after'    => $data['valor'],
+                'total_after'    => -$data['valor'],
                 'date'          => date('Y/m/d'),
                 'valor'         => $data['valor'],
                 'validade'      => 'S'  

@@ -78,7 +78,7 @@
                             @if( $despesa->type == "R")
                                 <tr>
                                     <td class="text-sm">{{ $despesa->date }}</td>  
-                                    <td class="text-sm">{{ $despesa->origem($despesa->origem) }}</td>
+                                    <td class="text-sm">{{ $despesa->origem->descricao }}</td>
                                     <td class="text-sm">{{ $despesa->descricao }}</td>
                                     <td class="text-sm">{{ number_format($despesa->valor, 2 , ',', '.')  }}</td>
                                 </tr>
@@ -103,8 +103,17 @@
             <div class="form-group row">
                 <!--     <input type="date" name="date"  class="form-control py-3"> -->
                 <!--    <label for="name">Origem</label>  -->
-                     <input type="txt" name="origem"  class="form-control py-3 " placeholder="Origem">       
-                    @if($errors->has('origem'))
+                <select name="origem_id" id="origem_id" class="form-control">
+                    <option selected>Escolha a origem</option>
+                    @foreach($origems as $origem)
+    
+                    <option value="{{$origem->id}}" >{{$origem->descricao}}</option>
+    
+                    @endforeach
+    
+                    </select>
+                   
+                     @if($errors->has('origem_id'))
                         <h6 class="text-danger" >Digite a Origem</h6> 
                     @endif
                 </div>

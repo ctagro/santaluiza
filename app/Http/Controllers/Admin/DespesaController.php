@@ -6,6 +6,7 @@ use App\Http\Controllers\Controller;
 use App\Models\Despesa;
 use Illuminate\Http\Request;
 use App\User;
+use App\Models\Origem;
 use Illuminate\Support\Facades\Validator;
 
 class DespesaController extends Controller
@@ -20,9 +21,13 @@ class DespesaController extends Controller
 
         $despesas = auth()->user()->despesa()->get();
 
-        $origens = $despesa->origem();
+        $origems = Origem::All();
 
-        return view('financeiro.despesa.index', compact('despesas'));
+  
+
+       //
+
+        return view('financeiro.despesa.index', compact('despesas','origems'));
     }
 
     /**
@@ -122,10 +127,11 @@ class DespesaController extends Controller
 
        $despesas = auth()->user()->despesa()->get();
 
-      
-                       
 
-        return  view('financeiro.fluxoDeCaixa', compact('despesas'));
+       $origems = Origem::all();
+
+
+        return  view('financeiro.fluxoDeCaixa', compact('despesas','origems'));
     }
 
     public function searchHistoric(Request $request, Despesa $despesa)
@@ -136,7 +142,9 @@ class DespesaController extends Controller
 
         $types = $despesa->type();
 
-        return  view('financeiro/fluxodecaixa', compact('despesas', 'types' , 'dataForm'));
+        $origems = Origem::All();
+
+        return  view('financeiro/fluxodecaixa', compact('despesas', 'types' , 'dataForm', 'origems'));
 
     }
 
@@ -145,7 +153,7 @@ class DespesaController extends Controller
 
         return request()->validate([
 
-               'origem'        => 'required', 
+               'origem_id'     => 'required', 
                'descricao'     => 'required',
                'valor'         => 'required',
 

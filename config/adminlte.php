@@ -304,6 +304,20 @@ return [
             'url'  => 'admin/balance/historic',
             'icon'        => 'fas fa-landmark',
         ],
+
+        ['header' => 'Configurações'],
+        [
+            'text'       => 'Origens',
+            'icon_color' => 'green',
+            'url'  => '/origems',
+            'icon'        => 'fas fa-money-bill-wave',
+        ],
+        [
+            'text'       => 'Contas a Pagar',
+            'icon_color' => 'yellow',
+            'url'  => 'admin/balance/deposit',
+            'icon'        => 'fas fa-money-bill',
+        ],
     ],
 
     /*

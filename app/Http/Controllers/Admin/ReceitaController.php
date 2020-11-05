@@ -5,6 +5,7 @@ namespace App\Http\Controllers\Admin;
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 use App\Models\Despesa;
+use App\Models\Origem;
 use App\User;
 
 class ReceitaController extends Controller
@@ -14,10 +15,10 @@ class ReceitaController extends Controller
 
     $despesas = auth()->user()->despesa()->get();
 
-    $origens = $despesa->origem();
+    $origems = Origem::All();
 
     
-    return view('financeiro.receita.index', compact('despesas'));
+    return view('financeiro.receita.index', compact('despesas', 'origems'));
 
     }
 
@@ -53,7 +54,7 @@ class ReceitaController extends Controller
 
         return request()->validate([
 
-               'origem'        => 'required', 
+               'origem_id'        => 'required', 
                'descricao'     => 'required',
                'valor'         => 'required',
 
