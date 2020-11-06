@@ -53,7 +53,7 @@
 
                   <th>Id</th>
                   <th>Código</th>
-                  <th>Descriçã<optgroup></optgroup></th>
+                  <th>Descrição<optgroup></optgroup></th>
 
 
                     <tbody>
