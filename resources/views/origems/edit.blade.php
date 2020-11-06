@@ -42,7 +42,7 @@
     <div class="col-8">
 
     <!-- porque nao suporta o metodo POST se store é post-->
-        <form action="{{ route('origems.update').$origem->id }}" method="POST"  enctype="multipart/form-data">
+        <form action="{{ route('origems.update' ,[ 'origem' => $origem->id ])}}" method="POST"  enctype="multipart/form-data">
 
         @method('PATCH')
         @include('origems.form')
