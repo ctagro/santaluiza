@@ -24,12 +24,15 @@
 
             @csrf
             <button type="submit" class="btn btn-primary btn-sm">Salvar</button>
+            <p class="text-right"> <a href="{{ url('/home') }}" class="text-right">Voltar </a> </p>
         </div>
+
      </div>
 
 </div>
 
 </div>
+
 
 <!-- ./wrapper -->
 <!-- jQuery -->
