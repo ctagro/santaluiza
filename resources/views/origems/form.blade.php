@@ -14,12 +14,21 @@
 
 
             <div class="form-group">
+
                 <label for="descricao">Descricao</label>
                 <input type="text" name="descricao" value="{{old('descricao') ?? $origem->descricao }}" class="form-control">
                 @if($errors->has('descricao'))
                         <h6 class="text-danger" >Digite a Descrição</h6> 
                 @endif
             </div>
+
+            <div class="form-group">
+                <label for="descricao" >Em uso (S / N)</label>
+                <input type="text" name="em_uso" value="{{old('em_uso') ?? $origem->em_uso }}" class="form-control">
+                @if($errors->has('em_uso'))
+                        <h6 class="text-danger" >Escolha a opção S ou N</h6> 
+                @endif
+                </div>
 
 
             @csrf

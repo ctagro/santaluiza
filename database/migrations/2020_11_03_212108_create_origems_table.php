@@ -17,6 +17,7 @@ class CreateOrigemsTable extends Migration
             $table->bigIncrements('id');
             $table->text('codigo',2);
             $table->text('descricao',15);
+            $table->enum('em_uso',['S','N']);
             $table->timestamps();
         });
     }

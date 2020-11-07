@@ -9,7 +9,8 @@ class Origem extends Model
 {
     protected $fillable = [
         'codigo',
-        'descricao'
+        'descricao',
+        'em_uso'
     
 ];
 

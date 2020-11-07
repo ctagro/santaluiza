@@ -106,9 +106,9 @@
                 <select name="origem_id" id="origem_id" class="form-control">
                     <option selected>Escolha a origem</option>
                     @foreach($origems as $origem)
-    
+                @if($origem->em_uso =="S")
                     <option value="{{$origem->id}}" >{{$origem->descricao}}</option>
-    
+                 @endif
                     @endforeach
     
                     </select>

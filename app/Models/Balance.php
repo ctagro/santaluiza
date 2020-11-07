@@ -11,7 +11,6 @@ use App\User;
 
 class Balance extends Model
 {
-    use HasFactory;
 
     public function deposit(float $value): Array
     {

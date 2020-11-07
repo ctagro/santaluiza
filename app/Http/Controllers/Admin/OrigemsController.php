@@ -47,6 +47,7 @@ class OrigemsController extends Controller
 
         $origem = new \App\Models\Origem([
 
+
         ]);
 
         return view('origems.create',compact('origem'));
@@ -64,7 +65,7 @@ class OrigemsController extends Controller
     {
 
         $data = $this->validateRequest();
-
+        
        $origem = origem::create($data);
 
         \Session::flash('mensagem_sucesso','origem cadastrado com sucesso');
@@ -147,6 +148,7 @@ class OrigemsController extends Controller
 
             'codigo'=> 'required',
             'descricao'=> 'required',
+            'em_uso' => 'required',
     
        ]);
 

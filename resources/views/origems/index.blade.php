@@ -71,11 +71,12 @@
                         <td >
                             <a href= "{{ route('origems.edit' ,[ 'origem' => $origem->id ])}}" class="btn btn-primary btn-sm">Editar</a>
 
-                            <form id="delete-form"  method="POST" action="{{ route('origems.destroy' ,[ 'origem' => $origem->id ])}}", style = 'display: inline;'>
+                           <form id="delete-form"  method="POST" action="{{ route('origems.destroy' ,[ 'origem' => $origem->id ])}}", style = 'display: inline;'> 
                               {{ csrf_field() }}
                               {{ method_field('DELETE') }}
                           
-                                <button type="submit" class="btn btn-danger btn-sm inline danger">Excluir</button>
+                      <!--     <button type="submit" class="btn btn-danger btn-sm inline danger">Excluir</button>
+                      -->
                      
                             </form>
 
