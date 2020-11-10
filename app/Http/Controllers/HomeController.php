@@ -25,4 +25,9 @@ class HomeController extends Controller
     {
         return view('admin.home.index');
     }
+
+    public function galeria()
+    {
+        return view('site.galeria.galeria');
+    }
 }

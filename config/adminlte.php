@@ -256,6 +256,12 @@ return [
             'icon_color' => 'yellow',
             'url'  => 'site/profile/profile',
             'icon' => 'fas fa-fw fa-user',
+        ],[
+            'text'        => 'Galeria de fotos',
+            'url'         => 'site/galeria/galeria',
+            'icon'        => 'fas fa-house-user',
+         //   'label'       => 4,
+         //   'label_color' => 'success',
         ],
         
         ['header' => 'Registrar Receitas e Despesas'],
