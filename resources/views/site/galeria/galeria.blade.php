@@ -3,7 +3,7 @@
 @section('title', 'AdminLTE')
 
 @section('content_header')
-    <h1 class="m-0 text-dark">Dashboard</h1>
+    <h1 class="m-0 text-dark">Fazenda Santa Luiza</h1>
 @stop
 
 @section('content')
@@ -25,28 +25,28 @@
   
         <div class="col-md-3 mb-3">
           <div class="card">
-            <img class="img-fluid" src="{{ asset('galeria/estufa_5.jpg')}}" style="height: 250px;"
+            <img class="img-fluid" src="{{ asset('galeria/pimentao_13.jpg')}}" style="height: 250px;"
               alt="Card image cap">
           </div>
         </div>
   
         <div class="col-md-3 mb-3">
           <div class="card">
-            <img class="img-fluid" src="{{ asset('galeria/estufa_5.jpg')}}" style="height: 250px;"
+            <img class="img-fluid" src="{{ asset('galeria/pimentao_3.jpg')}}" style="height: 250px;"
               alt="Card image cap">
           </div>
         </div>
   
         <div class="col-md-3 mb-3">
           <div class="card">
-            <img class="img-fluid" src="{{ asset('galeria/estufa_5.jpg')}}" style="height: 250px;"
+            <img class="img-fluid" src="{{ asset('galeria/pimentao_12.jpg')}}" style="height: 250px;"
               alt="Card image cap">
           </div>
         </div>
   
         <div class="col-md-3 mb-3">
           <div class="card">
-            <img class="img-fluid" src="{{ asset('galeria/estufa_5.jpg')}}" style="height: 250px;"
+            <img class="img-fluid" src="{{ asset('galeria/pimentao_4.jpg')}}" style="height: 250px;"
               alt="Card image cap">
           </div>
         </div>
@@ -59,28 +59,28 @@
   
         <div class="col-md-3 mb-3">
           <div class="card">
-            <img class="img-fluid" src="https://mdbootstrap.com/img/Photos/Horizontal/Nature/4-col/img%20(53).jpg"
+            <img class="img-fluid" src="{{ asset('galeria/pimentao_5.jpg')}}"
               alt="Card image cap">
           </div>
         </div>
   
         <div class="col-md-3 mb-3">
           <div class="card">
-            <img class="img-fluid" src="https://mdbootstrap.com/img/Photos/Horizontal/Nature/4-col/img%20(25).jpg"
+            <img class="img-fluid" src="{{ asset('galeria/pimentao_6.jpg')}}"
               alt="Card image cap">
           </div>
         </div>
   
         <div class="col-md-3 mb-3">
           <div class="card">
-            <img class="img-fluid" src="https://mdbootstrap.com/img/Photos/Horizontal/Nature/4-col/img%20(47).jpg"
+            <img class="img-fluid" src="{{ asset('galeria/pimentao_7.jpg')}}"
               alt="Card image cap">
           </div>
         </div>
   
         <div class="col-md-3 mb-3">
           <div class="card">
-            <img class="img-fluid" src="https://mdbootstrap.com/img/Photos/Horizontal/Nature/4-col/img%20(26).jpg"
+            <img class="img-fluid" src="{{ asset('galeria/pimentao_8.jpg')}}"
               alt="Card image cap">
           </div>
         </div>
@@ -93,28 +93,28 @@
   
         <div class="col-md-3 mb-3">
           <div class="card">
-            <img class="img-fluid" src="https://mdbootstrap.com/img/Photos/Horizontal/Nature/4-col/img%20(64).jpg"
+            <img class="img-fluid" src="{{ asset('galeria/pimentao_9.jpg')}}"
               alt="Card image cap">
           </div>
         </div>
   
         <div class="col-md-3 mb-3">
           <div class="card">
-            <img class="img-fluid" src="https://mdbootstrap.com/img/Photos/Horizontal/Nature/4-col/img%20(51).jpg"
+            <img class="img-fluid" src="{{ asset('galeria/pimentao_10.jpg')}}"
               alt="Card image cap">
           </div>
         </div>
   
         <div class="col-md-3 mb-3">
           <div class="card">
-            <img class="img-fluid" src="https://mdbootstrap.com/img/Photos/Horizontal/Nature/4-col/img%20(59).jpg"
+            <img class="img-fluid" src="{{ asset('galeria/pimentao_11.jpg')}}"
               alt="Card image cap">
           </div>
         </div>
   
         <div class="col-md-3 mb-3">
           <div class="card">
-            <img class="img-fluid" src="https://mdbootstrap.com/img/Photos/Horizontal/Nature/4-col/img%20(63).jpg"
+            <img class="img-fluid" src="{{ asset('galeria/pimentao_12.jpg')}}"
               alt="Card image cap">
           </div>
         </div>

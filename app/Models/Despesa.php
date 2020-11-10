@@ -58,6 +58,8 @@ class Despesa extends Model
 
        $lastDespesa = auth()->user()->despesa()->latest()->first();
 
+  
+
        //dd($lastDespesa);
 
        if($lastDespesa){
@@ -67,6 +69,7 @@ class Despesa extends Model
         $afterValor = $lastValor - $data['valor'];
 
 
+
       //  dd($data['valor'],$lastValor,$afterValor);
        
             $despesa = auth()->user()->despesa()->create([
@@ -74,7 +77,7 @@ class Despesa extends Model
                 'type'          => 'D',
                 'origem_id'     => $data['origem_id'], 
                 'descricao'     => $data['descricao'],
-                'date'          => date('Y/m/d'),
+                'date'          => $data['date'],
                 'total_before'  => $lastValor,
                 'total_after'   => $afterValor,
                 'valor'         => $data['valor'],
@@ -92,7 +95,7 @@ class Despesa extends Model
                 'descricao'     => $data['descricao'],
                 'total_before'   => 0,
                 'total_after'    => -$data['valor'],
-                'date'          => date('Y/m/d'),
+                'date'          => $data['date'],
                 'valor'         => $data['valor'],
                 'validade'      => 'S'  
                 ]);
@@ -147,7 +150,7 @@ class Despesa extends Model
                 'type'          => 'R',
                 'origem_id'        => $data['origem_id'], 
                 'descricao'     => $data['descricao'],
-                'date'          => date('Y/m/d'),
+                'date'          => $data['date'],
                 'total_before'  => $lastValor,
                 'total_after'   => $afterValor,
                 'valor'         => $data['valor'],
@@ -165,7 +168,7 @@ class Despesa extends Model
                 'descricao'     => $data['descricao'],
                 'total_before'   => 0,
                 'total_after'    => $data['valor'],
-                'date'          => date('Y/m/d'),
+                'date'          => $data['date'],
                 'valor'         => $data['valor'],
                 'validade'      => 'S'  
                 ]);

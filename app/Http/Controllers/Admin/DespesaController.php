@@ -51,6 +51,7 @@ class DespesaController extends Controller
         // instaciando $despesa com objeto do Model Despesa
 
         $data = $this->validateRequest();
+
         
         $despesa = new despesa();
 
