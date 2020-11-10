@@ -98,7 +98,8 @@
                     {!! csrf_field() !!}
          
             <div class="form-group row">
-                <input type="date" class="form-control" value="{{date('d/m/Y')}}" id="date" name='date' placeholder={{Date('d/m/y')}}>
+                <label for="name">Data</label>
+                <input type="date" class="form-control" value="{{date('d/m/Y')}}" id="date" name='date' placeholder="{{Date('d/m/y')}}">
                 @if($errors->has('date'))
                         <h6 class="text-danger" >Digite a data</h6> 
                 @endif

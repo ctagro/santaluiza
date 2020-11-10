@@ -114,7 +114,7 @@
   
         <div class="col-md-3 mb-3">
           <div class="card">
-            <img class="img-fluid" src="{{ asset('galeria/pimentao_12.jpg')}}"
+            <img class="img-fluid" src="{{ asset('galeria/pimentao_1.jpg')}}"
               alt="Card image cap">
           </div>
         </div>
