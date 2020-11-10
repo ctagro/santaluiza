@@ -97,8 +97,8 @@
                 <div class="form-group">
                     {!! csrf_field() !!}
          
-            <div class="form-group in-line">
-                <input type="hidden" value="{{date('d/m/Y')}}" class="form-control" id="data" name='data' placeholder="Data">
+            <div class="form-group row">
+                <input type="date" value="{{date('d/m/Y')}}" class="form-control" id="data" name='data' placeholder="Data">
             </div>
             <div class="form-group row">
                 <!--     <input type="date" name="date"  class="form-control py-3"> -->
