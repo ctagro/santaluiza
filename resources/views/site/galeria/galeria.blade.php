@@ -25,28 +25,28 @@
   
         <div class="col-md-3 mb-3">
           <div class="card">
-            <img class="img-fluid" src="{{ asset('galeria/estufa_1.jpg')}}" style="height: 250px;"
+            <img class="img-fluid" src="{{ asset('galeria/estufa_5.jpg')}}" style="height: 250px;"
               alt="Card image cap">
           </div>
         </div>
   
         <div class="col-md-3 mb-3">
           <div class="card">
-            <img class="img-fluid" src="{{ asset('galeria/estufa_2.jpg')}}" style="height: 250px;"
+            <img class="img-fluid" src="{{ asset('galeria/estufa_5.jpg')}}" style="height: 250px;"
               alt="Card image cap">
           </div>
         </div>
   
         <div class="col-md-3 mb-3">
           <div class="card">
-            <img class="img-fluid" src="{{ asset('galeria/estufa_3.jpg')}}" style="height: 250px;"
+            <img class="img-fluid" src="{{ asset('galeria/estufa_5.jpg')}}" style="height: 250px;"
               alt="Card image cap">
           </div>
         </div>
   
         <div class="col-md-3 mb-3">
           <div class="card">
-            <img class="img-fluid" src="{{ asset('galeria/estufa_4.jpg')}}" style="height: 250px;"
+            <img class="img-fluid" src="{{ asset('galeria/estufa_5.jpg')}}" style="height: 250px;"
               alt="Card image cap">
           </div>
         </div>
