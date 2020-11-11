@@ -97,30 +97,27 @@
                 <div class="form-group">
                     {!! csrf_field() !!}
          
-            <div class="form-group row">
-                <label for="name">Data</label>
-                <input type="date" class="form-control" value="{{date('d/m/Y')}}" id="date" name='date' placeholder={{Date('d/m/y')}}>
-                @if($errors->has('date'))
-                        <h6 class="text-danger" >Digite a data</h6> 
-                @endif
-            </div>
-            <div class="form-group row">
-                <!--     <input type="date" name="date"  class="form-control py-3"> -->
-                <!--    <label for="name">Origem</label>  -->
-                <select name="origem_id" id="origem_id" class="form-control">
-                    <option selected>Escolha a origem</option>
-                    @foreach($origems as $origem)
-                        @if($origem->em_uso =="S")
-                          <option value="{{$origem->id}}" >{{$origem->descricao}}</option>
+                    <div class="form-group row">
+                        <label for="name">Data</label>
+                        <input type="date" class="form-control" value="<?php echo date('d/m/Y');?>" id="date" name='date' placeholder="<?php echo date('d/m/Y');?>" required>
+                        @if($errors->has('date'))
+                                <h6 class="text-danger" >Digite a data</h6> 
                         @endif
-                    @endforeach
-    
-                    </select>
-                   
-                     @if($errors->has('origem_id'))
-                        <h6 class="text-danger" >Digite a Origem</h6> 
-                    @endif
-                </div>
+                    </div>
+                    <div class="form-group row">
+                        <!--     <input type="date" name="date"  class="form-control py-3"> -->
+                        <label for="origem_id">Escolha a origem</label>
+                        <select name="origem_id" id="origem_id" class="form-control">
+                            @foreach($origems as $origem)
+                                @if($origem->em_uso =="S")
+                                    <option value="{{$origem->id}}" >{{$origem->descricao}}</option>
+                                @endif
+                            @endforeach
+                        </select>
+                        @if($errors->has('origem_id'))
+                            <h6 class="text-danger" >Digite a Descrição</h6> 
+                        @endif
+                    </div>
                     
                  <div class="form-group row">
                      <input type="txt" name="descricao"  class="form-control py-3" placeholder="Descrição">

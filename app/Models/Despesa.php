@@ -70,7 +70,7 @@ class Despesa extends Model
 
 
 
-      //  dd($data['valor'],$lastValor,$afterValor);
+      // dd($data['valor'],$lastValor,$afterValor);
        
             $despesa = auth()->user()->despesa()->create([
 
@@ -143,7 +143,7 @@ class Despesa extends Model
 
         $afterValor = $lastValor + $data['valor'];
 
-      //  dd($data['valor'],$lastValor,$afterValor);
+    
        
             $despesa = auth()->user()->despesa()->create([
 
