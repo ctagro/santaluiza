@@ -9,6 +9,7 @@ use Illuminate\Support\Facades\Storage;
 use App\Models\Balance;
 use App\Models\Historic;
 use App\Models\Despesa;
+use App\Models\Despesa_conta;
 
 class User extends Authenticatable
 {
@@ -71,5 +72,10 @@ class User extends Authenticatable
                         ->orWhere('email', $sender)
                         ->get()
                         ->first();
+    }
+
+    public function despesa_conta()
+    {
+        return $this->hasMany(Despesa_conta::class);
     }
 }

@@ -3,23 +3,24 @@
 namespace App\Http\Controllers\Admin;
 
 use App\Http\Controllers\Controller;
-use App\Models\Despesa;
 use Illuminate\Http\Request;
+use App\Models\Despesa_conta;
+use App\Models\Despesa;
 use App\User;
 use App\Models\Origem;
 use Illuminate\Support\Facades\Validator;
 
-class DespesaController extends Controller
+class Despesa_contaController extends Controller
 {
     /**
      * Display a listing of the resource.
      *
      * @return \Illuminate\Http\Response
      */
-    public function index(Despesa $despesa)
+    public function index(Despesa_conta $despesa_conta)
     {
 
-        $despesas = auth()->user()->despesa()->get();
+        $despesa_contas = auth()->user()->despesa_conta()->get();
 
         $origems = Origem::All();
 
@@ -27,7 +28,7 @@ class DespesaController extends Controller
 
        //
 
-        return view('financeiro.despesa.index', compact('despesas','origems'));
+        return view('financeiro.despesa_conta.index', compact('despesa_contas','origems'));
     }
 
     /**
@@ -46,25 +47,25 @@ class DespesaController extends Controller
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
-    public function storeDespesa(Request $request)
+    public function storeDespesa_conta(Request $request)
     {
-        // instaciando $despesa com objeto do Model Despesa
+        // instaciando $despesa_conta com objeto do Model Despesa_conta
 
         $data = $this->validateRequest();
 
         
-        $despesa = new despesa();
+        $despesa_conta = new despesa_conta();
 
-        // Chamando a objeto a funcao do model despesa e passando o array 
-        // capiturado no formulario da view financeiro/despesa
+        // Chamando a objeto a funcao do model despesa_conta e passando o array 
+        // capiturado no formulario da view financeiro/despesa_conta
 
-        $response = $despesa->storeDespesa($request->all());
+        $response = $despesa_conta->storeDespesa_conta($request->all());
 
 
         if ($response['sucess'])
 
             return redirect()
-                        ->route('despesa.index')
+                        ->route('despesa_conta.index')
                         ->with('sucess', $response['mensage']);
                     
 
@@ -77,10 +78,10 @@ class DespesaController extends Controller
     /**
      * Display the specified resource.
      *
-     * @param  \App\Models\Despesa  $despesa
+     * @param  \App\Models\Despesa_conta  $despesa_conta
      * @return \Illuminate\Http\Response
      */
-    public function show(Despesa $despesa)
+    public function show(Despesa_conta $despesa_conta)
     {
         //
     }
@@ -88,10 +89,10 @@ class DespesaController extends Controller
     /**
      * Show the form for editing the specified resource.
      *
-     * @param  \App\Models\Despesa  $despesa
+     * @param  \App\Models\Despesa_conta  $despesa_conta
      * @return \Illuminate\Http\Response
      */
-    public function edit(Despesa $despesa)
+    public function edit(Despesa_conta $despesa_conta)
     {
         //
     }
@@ -100,10 +101,10 @@ class DespesaController extends Controller
      * Update the specified resource in storage.
      *
      * @param  \Illuminate\Http\Request  $request
-     * @param  \App\Models\Despesa  $despesa
+     * @param  \App\Models\Despesa_conta  $despesa_conta
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, Despesa $despesa)
+    public function update(Request $request, Despesa_conta $despesa_conta)
     {
         //
     }
@@ -111,37 +112,38 @@ class DespesaController extends Controller
     /**
      * Remove the specified resource from storage.
      *
-     * @param  \App\Models\Despesa  $despesa
+     * @param  \App\Models\Despesa_conta  $despesa_conta
      * @return \Illuminate\Http\Response
      */
-    public function destroy(Despesa $despesa)
+    public function destroy(Despesa_conta $despesa)
     {
         //
     }
 
-    public function fluxodecaixa_futuro()
+    public function fluxodecaixa()
     {
       
        // $historics = auth()->user()->historics()->with(['userSender'])->get();
 
        // paginando a consulta
 
-       $despesas = auth()->user()->despesa()->get();
+       $despesa_contas = auth()->user()->despesa_conta()->get();
+
 
 
        $origems = Origem::all();
 
 
-        return  view('financeiro.fluxoDeCaixa_futuro', compact('despesas','origems'));
+        return  view('financeiro.fluxoDeCaixa', compact('despesa_contas','origems'));
     }
 
-    public function searchHistoric(Request $request, Despesa $despesa)
+    public function searchHistoric(Request $request, Despesa_conta $despesa_conta)
     {
         $dataForm = $request->except('_token'); // para evitar a passagem do token na mudança de pagina
 
-        $historics = $despesa->search($dataForm, $this->totalPage);
+        $historics = $despesa_conta->search($dataForm, $this->totalPage);
 
-        $types = $despesa->type();
+        $types = $despesa_conta->type();
 
         $origems = Origem::All();
 

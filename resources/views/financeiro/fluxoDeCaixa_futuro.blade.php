@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
   
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title>Fluxo de Caixa</title>
+    <title>Fluxo de Caixa Futuro</title>
      <!-- Tell the browser to be responsive to screen width -->
   <meta name="viewport" content="width=device-width, initial-scale=1">
 
@@ -68,18 +68,18 @@
                     </tr>
                 </thead>
                 <tbody>
-                    @forelse($despesa_contas as $despesa_conta)
+                    @forelse($despesas as $despesa)
                         <tr>
                      
-                            <th class="text-sm" >{{ $despesa_conta->date }}</th>
-                            <th class="text-sm" >{{ $despesa_conta->origem->codigo }}</th>
-                            <td class="text-sm">{{ $despesa_conta->descricao }}</td>
-                            @if( $despesa_conta->type == "D")
-                                 <td class="text-sm">{{ number_format((-1 * $despesa_conta->valor), 2 , ',', '.')  }}</td>
+                            <th class="text-sm" >{{ $despesa->date }}</th>
+                            <th class="text-sm" >{{ $despesa->origem->codigo }}</th>
+                            <td class="text-sm">{{ $despesa->descricao }}</td>
+                            @if( $despesa->type == "D")
+                                 <td class="text-sm">{{ number_format((-1 * $despesa->valor), 2 , ',', '.')  }}</td>
                             @else
-                                 <td class="text-sm" >{{ number_format($despesa_conta->valor, 2 , ',', '.')  }}</td>
+                                 <td class="text-sm" >{{ number_format($despesa->valor, 2 , ',', '.')  }}</td>
                             @endif
-                            <td class="text-sm" >{{ number_format($despesa_conta->total_after, 2 , ',', '.')  }}</td>
+                            <td class="text-sm" >{{ number_format($despesa->total_after, 2 , ',', '.')  }}</td>
 
                         </tr>
                         @empty

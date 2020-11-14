@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
   
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title>Fluxo de Caixa</title>
+    <title>Despesas</title>
      <!-- Tell the browser to be responsive to screen width -->
   <meta name="viewport" content="width=device-width, initial-scale=1">
 
@@ -27,20 +27,20 @@
 
 @extends('adminlte::page')
 
-@section('title', 'Receita')
+@section('title', 'Despesas')
 
-@section('content_header')
+@section('content_header')  
 <div class="row">     
-    <img class="card-img-top img-responsive img-thumbnail" src="{{ asset('img/cards/fluxo_de_caixa.jpeg')}}"  style="height: 50px; width: 50px;"alt="Imagem" >
-   <h1 class="ml-2  text-center">Fluxo de Caixa</h1>
+     <img class="card-img-top img-responsive img-thumbnail" src="{{ asset('img/cards/receitas.jpeg')}}"  style="height: 50px; width: 50px;"alt="Imagem" >
+    <h1 class="ml-2  text-center">Registrar Receita</h1>
 </div>
 @stop
 
 @section('content')
 
 
-    <!--
-            <div class="">
+    
+   <!--         <div class="">
     
                     <div class="dataTables_length" id="example1_length">
                         <label>Linhas<select name="" aria-controls="example1" class="custom-select custom-select-sm form-control form-control-sm">
@@ -53,46 +53,92 @@
             </div>
         -->
 
-        <div class='table-responsive'>
+  
+        <form method="POST" action="{{ route('receita_conta.store')}}">
+            <div class="form-group">
+                {!! csrf_field() !!}
 
-            <table id="fluxo" class="table table-sm table-bordered table-striped dataTable dtr-inline collapsed" role="grid" aria-describedby="Fluxo">
-                <thead>
-                    <tr >  <!-- role="row" -->
-                  <!--      <th class="sorting_asc" tabindex="0" aria-controls="example2" rowspan="1" colspan="1" aria-label="Rendering engine: activate to sort column descending" aria-sort="ascending">ID</th>
-                  -->
-                        <th class="sorting" tabindex="0" aria-controls="example2" rowspan="1" colspan="1" aria-label="Browser: activate to sort column ascending">Data</th>
-                        <th class="sorting" tabindex="0" aria-controls="example2" rowspan="1" colspan="1" aria-label="Platform(s): activate to sort column ascending">Área</th>
-                        <th class="sorting" tabindex="0" aria-controls="example2" rowspan="1" colspan="1" aria-label="Platform(s): activate to sort column ascending">Descrição</th>
-                        <th class="sorting" tabindex="0" aria-controls="example2" rowspan="1" colspan="1" aria-label="Engine version: activate to sort column ascending">Valor</th>
-                        <th class="sorting" tabindex="0" aria-controls="example2" rowspan="1" colspan="1" aria-label="Engine version: activate to sort column ascending">Saldo</th>
-                    </tr>
-                </thead>
-                <tbody>
-                    @forelse($despesa_contas as $despesa_conta)
+                
+                <div class='table-responsive'>
+
+                <table id="example1" class="table table-sm table-bordered table-striped dataTable dtr-inline collapsed" role="grid" aria-describedby="example1_info">
+                    <thead>
                         <tr>
-                     
-                            <th class="text-sm" >{{ $despesa_conta->date }}</th>
-                            <th class="text-sm" >{{ $despesa_conta->origem->codigo }}</th>
-                            <td class="text-sm">{{ $despesa_conta->descricao }}</td>
-                            @if( $despesa_conta->type == "D")
-                                 <td class="text-sm">{{ number_format((-1 * $despesa_conta->valor), 2 , ',', '.')  }}</td>
-                            @else
-                                 <td class="text-sm" >{{ number_format($despesa_conta->valor, 2 , ',', '.')  }}</td>
-                            @endif
-                            <td class="text-sm" >{{ number_format($despesa_conta->total_after, 2 , ',', '.')  }}</td>
-
+                            <th class="sorting_asc" tabindex="0" aria-controls="" rowspan="0" colspan="1"  aria-label="">Data</th>
+                            <th class="sorting" tabindex="0" aria-controls="example1" rowspan="1" colspan="1" aria-label="Browser: activate to sort column ascending">Origem</th>
+                            <th class="sorting" tabindex="0" aria-controls="example1" rowspan="1" colspan="1" aria-label="Platform(s): activate to sort column ascending">Despesa</th>
+                            <th class="sorting" tabindex="0" aria-controls="example1" rowspan="1" colspan="1" aria-label="Engine version: activate to sort column ascending">Valor</th>
+                            <th class="sorting" tabindex="0" aria-controls="example1" rowspan="1" colspan="1" aria-label="CSS grade: activate to sort column ascending" style="display: none;">CSS grade</th>
                         </tr>
-                        @empty
-                    @endforelse                    
-                </tbody>
-            </table>
-            <a href="#" id="ancora"></a>
+                    </thead>
+                
+                    <tbody>
+                        @forelse($despesa_contas as $despesa_conta)
+
+                            @if( $despesa_conta->type == "R")
+                                <tr>
+                                    <td class="text-sm">{{ $despesa_conta->date }}</td>  
+                                    <td class="text-sm">{{ $despesa_conta->origem->descricao }}</td>
+                                    <td class="text-sm">{{ $despesa_conta->descricao }}</td>
+                                    <td class="text-sm">{{ number_format($despesa_conta->valor, 2 , ',', '.')  }}</td>
+                                </tr>
+                            @endif
+                            @empty
+                        @endforelse                  
+                    </tbody>
+        
+                </table>
+                
+            </div>
 
             <p class="text-right"> <a href="{{ url('/home') }}" class="text-right">Voltar </a> </p>
-        </div>
-    <!--   
+           
+            <form method="POST" action="{{ route('receita_conta.store')}}">
+                <div class="form-group">
+                    {!! csrf_field() !!}
+         
+                    <div class="form-group in-line">
+                        <input type="hidden" value="{{date('d/m/Y')}}" class="form-control" id="data" name='data' placeholder="Data">
+                    </div>
+                    
+                    <div class="form-group row">
+                        <!--     <input type="date" name="date"  class="form-control py-3"> -->
+                        <label for="origem_id">Escolha a origem</label>
+                        <select name="origem_id" id="origem_id" class="form-control">
+                            @foreach($origems as $origem)
+                                @if($origem->em_uso =="S")
+                                    <option value="{{$origem->id}}" >{{$origem->descricao}}</option>
+                                @endif
+                            @endforeach
+                        </select>
+                        @if($errors->has('origem_id'))
+                            <h6 class="text-danger" >Digite a Descrição</h6> 
+                        @endif
+                    </div>
+                    
+                 <div class="form-group row">
+                     <input type="txt" name="descricao"  class="form-control py-3" placeholder="Descrição">
+                     @if($errors->has('descricao'))
+                         <h6 class="text-danger" >Digite a Descrição</h6> 
+                     @endif
+                    </div>
+                 <div class="form-group row">
+                  <input type="number" name="valor"  class="form-control py-3" placeholder="Valor da despesa">
+                    @if($errors->has('valor'))
+                        <h6 class="text-danger" >Digite o valor</h6> 
+                    @endif
+                </div> 
+            </div>
+                </div> 
 
-        <div class="row">
+                <div class="form-group">
+                    <button type="submit" class="btn btn-success btn-block">Registrar a receitas</button>
+                </div>
+            <a href="#" id="ancora"></a>
+        </form>
+
+
+<!--        <div class="row">
             <div class="col-sm-12 col-md-5">
                 <div class="dataTables_info" id="example1_info" role="status" aria-live="polite">Showing 1 to 10 of 57 entries</div>
             </div>
@@ -167,5 +213,7 @@
   </script>
 
 @stop
+
+ 
 
  

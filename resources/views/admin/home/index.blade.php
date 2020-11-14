@@ -18,9 +18,9 @@
     <div class="row justify-content-sm-center">
 
         <div class="col-md-4 col-sm-12">
-        <a href="{{ route('despesa.index') }}" class="">
+        <a href="{{ route('despesa_conta.index') }}" class="">
             <div class="card">
-                <h5 class="mt-2 text-center">Registrar Despesas</h5>
+                <h5 class="mt-2 text-center">Caixa: Registrar Despesas</h5>
                  <img class="card-img-top img-responsive img-thumbnail" src="{{ asset('img/cards/despesas.jpeg')}}"  style="height: 200px;"alt="Espaço reservado para exibição de imagens" >
                 <div class="card-body">
                     <h6 class="text-center">Fazenda Santa Luiza</h6>
@@ -33,9 +33,9 @@
         </div>
 
         <div class="col-md-4 col-sm-12">
-            <a href="{{ route('receita.index') }}" class="">
+            <a href="{{ route('receita_conta.index') }}" class="">
                 <div class="card">
-                    <h5 class="mt-2 text-center">Registrar Receitas</h5>           
+                    <h5 class="mt-2 text-center">Caixa: Registrar Receitas</h5>           
                         <img class="card-img-top img-responsive img-thumbnail" src="{{ asset('img/cards/receitas.jpeg')}}"  style="height: 200px;" alt="Espaço reservado para exibição de imagem" >              
                     <div class="card-body">
                         <h6 class="text-center">Fazenda Santa Luiza</h6>
@@ -49,7 +49,7 @@
         <div class="col-md-4 col-sm-12">
             <a href="{{ route('financeiro.fluxoDeCaixa') }}" class="">
             <div class="card">
-                <h5 class="mt-2 text-center">Fluxo de Caixa</h5>
+                <h5 class="mt-2 text-center">Saldo</h5>
     
                     <img class="card-img-top img-responsive img-thumbnail" src="{{ asset('img/cards/fluxo_de_caixa.jpeg')}}"  style="height: 200px;" alt="Espaço reservado para exibição de imagem" >
                   
@@ -79,7 +79,7 @@
         </div>
 
         <div class="col-md-4 col-sm-12">
-            <a href="{{ route('despesa.index') }}" class="">
+            <a href="{{ route('receita.index') }}" class="">
             <div class="card">
                 <h5 class="mt-2 text-center">Contas a Receber</h5>
  
@@ -95,7 +95,7 @@
         </div>
 
         <div class="col-md-4 col-sm-12">
-            <a href="{{ route('despesa.index') }}" class="">
+            <a href="{{ route('financeiro.fluxoDeCaixa_futuro') }}" class="">
             <div class="card">
                 <h5 class="mt-2 text-center">Fluxo de Caixa Futuro</h5>
    

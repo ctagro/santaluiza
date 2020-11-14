@@ -264,27 +264,27 @@ return [
          //   'label_color' => 'success',
         ],
         
-        ['header' => 'Registrar Receitas e Despesas'],
+        ['header' => 'Conta corrente'],
         
 
         [
-            'text'       => 'Despesa',
+            'text'       => 'Registrar Despesas',
             'icon_color' => 'cyan',
-            'url'        => 'financeiro/despesa/index',
+            'url'        => 'financeiro/despesa_conta/index',
             'icon'        => 'fas fa-calendar-minus',
 
         ],
 
         [
-            'text'       => 'Receita',
+            'text'       => 'Registrar Receitas',
             'icon_color' => 'cyan',
-            'url'        => 'financeiro/receita/index',
+            'url'        => 'financeiro/receita_conta/index',
             'icon'        => 'fas fa-calendar-plus', 
 
         ],
 
         [
-            'text'       => 'Fluxo de Caixa',
+            'text'       => 'Saldo',
             'icon_color' => 'cyan',
             'url'        => 'financeiro/fluxoDeCaixa',
             'icon'        => 'fas fa-chart-line', 
@@ -294,21 +294,22 @@ return [
         [
             'text'       => 'Contas a Receber',
             'icon_color' => 'green',
-            'url'  => 'admin/balance',
+            'url'  => 'financeiro/receita/index',
             'icon'        => 'fas fa-money-bill-wave',
         ],
         [
             'text'       => 'Contas a Pagar',
             'icon_color' => 'yellow',
-            'url'  => 'admin/balance/deposit',
+            'url'  => 'financeiro/despesa/index',
             'icon'        => 'fas fa-money-bill',
         ],
 
         [
-            'text'       => 'Previsões',
-            'icon_color' => 'green',
-            'url'  => 'admin/balance/historic',
-            'icon'        => 'fas fa-landmark',
+            'text'       => 'Fluxo Futuro',
+            'icon_color' => 'cyan',
+            'url'        => 'financeiro/fluxoDeCaixa_futuro',
+            'icon'        => 'fas fa-chart-line', 
+
         ],
 
         ['header' => 'Configurações'],
@@ -318,12 +319,9 @@ return [
             'url'  => '/origems',
             'icon'        => 'fas fa-money-bill-wave',
         ],
-        [
-            'text'       => 'Contas a Pagar',
-            'icon_color' => 'yellow',
-            'url'  => 'admin/balance/deposit',
-            'icon'        => 'fas fa-money-bill',
-        ],
+
+        
+        
     ],
 
     /*

@@ -30,7 +30,21 @@ Route::post('financeiro/receita/store', [App\Http\Controllers\Admin\ReceitaContr
 Route::get('financeiro/despesa/index', [App\Http\Controllers\Admin\DespesaController::class, 'index'])->name('despesa.index')-> middleware('auth');
 Route::post('financeiro/despesa/store', [App\Http\Controllers\Admin\DespesaController::class, 'storeDespesa'])->name('despesa.store')-> middleware('auth');
 
-Route::get('financeiro/fluxoDeCaixa', [App\Http\Controllers\Admin\DespesaController::class, 'fluxoDeCaixa'])->name('financeiro.fluxoDeCaixa')-> middleware('auth');
+
+// conta ...
+
+Route::get('financeiro/receita_conta/index', [App\Http\Controllers\Admin\Receita_contaController::class, 'index'])->name('receita_conta.index')-> middleware('auth');
+Route::post('financeiro/receita_conta/store', [App\Http\Controllers\Admin\Receita_contaController::class, 'storeReceita_conta'])->name('receita_conta.store')-> middleware('auth');
+
+
+Route::get('financeiro/despesa_conta/index', [App\Http\Controllers\Admin\Despesa_contaController::class, 'index'])->name('despesa_conta.index')-> middleware('auth');
+Route::post('financeiro/despesa_conta/store', [App\Http\Controllers\Admin\Despesa_contaController::class, 'storeDespesa_conta'])->name('despesa_conta.store')-> middleware('auth');
+
+Route::get('financeiro/fluxoDeCaixa', [App\Http\Controllers\Admin\Despesa_contaController::class, 'fluxoDeCaixa'])->name('financeiro.fluxoDeCaixa')-> middleware('auth');
+
+Route::get('financeiro/fluxoDeCaixa_futuro', [App\Http\Controllers\Admin\DespesaController::class, 'fluxoDeCaixa_futuro'])->name('financeiro.fluxoDeCaixa_futuro')-> middleware('auth');
+
+
 
 /*
 Route::get('/', [App\Http\Controllers\Site\SiteController::class, 'index'])->name('home');
