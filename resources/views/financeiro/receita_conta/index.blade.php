@@ -27,7 +27,7 @@
 
 @extends('adminlte::page')
 
-@section('title', 'Despesas')
+@section('title', 'Receita')
 
 @section('content_header')  
 <div class="row">     

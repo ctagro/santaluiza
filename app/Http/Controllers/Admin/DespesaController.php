@@ -121,18 +121,16 @@ class DespesaController extends Controller
 
     public function fluxodecaixa_futuro()
     {
-      
-       // $historics = auth()->user()->historics()->with(['userSender'])->get();
 
-       // paginando a consulta
+        $despesas = auth()->user()->despesa()->orderBy('date')->get();
 
-       $despesas = auth()->user()->despesa()->get();
+        $ultimo_conta = auth()->user()->despesa_conta()->latest()->first();
 
 
        $origems = Origem::all();
 
 
-        return  view('financeiro.fluxoDeCaixa_futuro', compact('despesas','origems'));
+        return  view('financeiro.fluxoDeCaixa_futuro', compact('despesas','origems','ultimo_conta'));
     }
 
     public function searchHistoric(Request $request, Despesa $despesa)

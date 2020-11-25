@@ -68,6 +68,15 @@
                     </tr>
                 </thead>
                 <tbody>
+                    <th class="text-sm" >{{ $ultimo_conta->date }}</th>
+                    <th class="text-sm" > </th>
+                    <td class="text-sm">Saldo da conta</td>
+                    <?php $saldo = 0 ?>
+                   
+                    <td class="text-sm"> </td>
+
+                    <td class="text-sm" >{{ number_format($ultimo_conta->total_after, 2 , ',', '.')  }}</td>
+                    <?php $saldo = $ultimo_conta->total_after ?>
                     @forelse($despesas as $despesa)
                         <tr>
                      
@@ -76,11 +85,13 @@
                             <td class="text-sm">{{ $despesa->descricao }}</td>
                             @if( $despesa->type == "D")
                                  <td class="text-sm">{{ number_format((-1 * $despesa->valor), 2 , ',', '.')  }}</td>
+                                 <?php $saldo = $saldo - $despesa->valor ?>
                             @else
                                  <td class="text-sm" >{{ number_format($despesa->valor, 2 , ',', '.')  }}</td>
+                                 <?php $saldo = $saldo + $despesa->valor ?>
                             @endif
-                            <td class="text-sm" >{{ number_format($despesa->total_after, 2 , ',', '.')  }}</td>
-
+                            <td class="text-sm" >{{ number_format($saldo, 2 , ',', '.')  }}</td>
+                         
                         </tr>
                         @empty
                     @endforelse                    

@@ -129,8 +129,7 @@ class Despesa_contaController extends Controller
 
        $despesa_contas = auth()->user()->despesa_conta()->get();
 
-
-
+    
        $origems = Origem::all();
 
 
