@@ -4,6 +4,7 @@ namespace App\Http\Controllers\Admin;
 
 use App\Http\Controllers\Controller;
 use App\Models\Despesa;
+use App\Models\Despesa_conta;
 use Illuminate\Http\Request;
 use App\User;
 use App\Models\Origem;
@@ -123,6 +124,8 @@ class DespesaController extends Controller
     {
 
         $despesas = auth()->user()->despesa()->orderBy('date')->get();
+
+        // Necessario testar se há registro na tabela despesa_conta
 
         $ultimo_conta = auth()->user()->despesa_conta()->latest()->first();
 

@@ -64,6 +64,7 @@
                 <table id="example1" class="table table-sm table-bordered table-striped dataTable dtr-inline collapsed" role="grid" aria-describedby="example1_info">
                     <thead>
                         <tr>
+                            <th></th>
                             <th class="sorting_asc" tabindex="0" aria-controls="" rowspan="0" colspan="1"  aria-label="">Data</th>
                             <th class="sorting" tabindex="0" aria-controls="example1" rowspan="1" colspan="1" aria-label="Browser: activate to sort column ascending">Origem</th>
                             <th class="sorting" tabindex="0" aria-controls="example1" rowspan="1" colspan="1" aria-label="Platform(s): activate to sort column ascending">Despesa</th>
@@ -77,6 +78,9 @@
 
                             @if( $despesa_conta->type == "D")
                                 <tr>
+                                    <td 
+                                    <a href= "#" class="btn btn-primary btn-sm">Editar</a> 
+                                </td>
                                     <td class="text-sm">{{ $despesa_conta->date }}</td>  
                                     <td class="text-sm">{{ $despesa_conta->origem->descricao }}</td>
                                     <td class="text-sm">{{ $despesa_conta->descricao }}</td>

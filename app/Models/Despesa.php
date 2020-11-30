@@ -21,8 +21,6 @@ class Despesa extends Model
         'origem_id', 
         'descricao',
         'date',
-        'total_before',
-        'total_after',
         'valor',
         'validade',
         'updated_at',
