@@ -51,7 +51,7 @@
 
                   <table class="table">
 
-                  <th>Id</th>
+                  <th>Ativo</th>
                   <th>Código</th>
                   <th>Descrição<optgroup></optgroup></th>
 
@@ -62,7 +62,7 @@
 
                       <tr>
 
-                        <td>{{$origem -> id}}</td>
+                        <td>{{$origem -> em_uso}}</td>
                         <td>{{$origem -> codigo}}</td>
                         <td>{{$origem -> descricao}}</td>
 

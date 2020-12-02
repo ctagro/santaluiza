@@ -10,6 +10,7 @@ use App\Models\Balance;
 use App\Models\Historic;
 use App\Models\Despesa;
 use App\Models\Despesa_conta;
+use App\Models\Origem;
 
 class User extends Authenticatable
 {
@@ -77,5 +78,10 @@ class User extends Authenticatable
     public function despesa_conta()
     {
         return $this->hasMany(Despesa_conta::class);
+    }
+
+    public function origem()
+    {
+        return $this->hasMany(Origem::class);
     }
 }

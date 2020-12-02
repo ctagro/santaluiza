@@ -22,7 +22,7 @@ class DespesaController extends Controller
 
         $despesas = auth()->user()->despesa()->get();
 
-        $origems = Origem::All();
+        $origems = auth()->user()->origem()->get();
 
   
 
@@ -60,6 +60,7 @@ class DespesaController extends Controller
         // capiturado no formulario da view financeiro/despesa
 
         $response = $despesa->storeDespesa($request->all());
+
 
 
         if ($response['sucess'])

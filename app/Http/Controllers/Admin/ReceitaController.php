@@ -15,7 +15,7 @@ class ReceitaController extends Controller
 
     $despesas = auth()->user()->despesa()->get();
 
-    $origems = Origem::All();
+    $origems = auth()->user()->origem()->get();
 
     
     return view('financeiro.receita.index', compact('despesas', 'origems'));

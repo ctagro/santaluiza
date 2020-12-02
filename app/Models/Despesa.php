@@ -53,6 +53,7 @@ class Despesa extends Model
     public function storeDespesa(array $data): Array
     {
 
+            // recebe o array do controller Despesa -> storeDespesa e grava na tabela
 
        $lastDespesa = auth()->user()->despesa()->latest()->first();
 

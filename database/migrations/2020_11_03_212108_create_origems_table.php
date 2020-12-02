@@ -15,6 +15,8 @@ class CreateOrigemsTable extends Migration
     {
         Schema::create('origems', function (Blueprint $table) {
             $table->bigIncrements('id');
+            $table->unsignedBigInteger('user_id');
+            $table->foreign('user_id')->references('id')->on('users')->onDelete('cascade');
             $table->text('codigo',2);
             $table->text('descricao',15);
             $table->enum('em_uso',['S','N']);

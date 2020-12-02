@@ -27,7 +27,9 @@ class OrigemsController extends Controller
     public function index()
     {
 
-    $origems = Origem::all();
+    $origems = auth()->user()->origem()->get();
+
+    // $origems = Origem::all();
 
     // dd($origems);   
 
@@ -61,18 +63,34 @@ class OrigemsController extends Controller
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
-    public function store(origem $origem)
+    public function storeOrigem(Request $request)
     {
+        // instaciando $despesa com objeto do Model Despesa
 
         $data = $this->validateRequest();
+
         
-       $origem = origem::create($data);
+        $origem = new origem();
 
-        \Session::flash('mensagem_sucesso','origem cadastrado com sucesso');
+        // Chamando a objeto a funcao do model despesa e passando o array 
+        // capiturado no formulario da view financeiro/despesa
 
-        return Redirect()->Route('origems.create');
+        $response = $origem->storeOrigem($request->all());
+
+
+
+        if ($response['sucess'])
+
+            return redirect()
+                        ->route('origems.index')
+                        ->with('sucess', $response['mensage']);
+                    
+
+        return redirect()
+                    ->back()
+                    ->with('error', $response['mensage']);
+
     }
-
 
 
     /**
@@ -87,7 +105,7 @@ class OrigemsController extends Controller
       //  $user_login_id = auth()->user()->id;
       //  $user = auth()->user();
 
-        $origems= Origem::where('id', $origem)->get();
+      $origems = auth()->user()->origem()->get();
 
 
         return view('origems.show', compact('origem' ));
@@ -103,6 +121,7 @@ class OrigemsController extends Controller
      * @return \Illuminate\Http\Response
      */
     public function edit(origem $origem) {
+
 
         $user = auth()->user();
 
