@@ -59,7 +59,7 @@
                     <tbody>
                         @forelse($despesas as $despesa)
 
-                            @if( $despesa->type == "T")
+                            @if( $despesa->type == "I")
                                 <tr>
                                     <td>
                                        <a href= "{{ route('investimento.edit' ,[ 'despesa' => $despesa->id ])}}" >{{ $despesa->date }}</a>

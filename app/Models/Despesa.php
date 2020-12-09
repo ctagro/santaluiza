@@ -140,7 +140,7 @@ class Despesa extends Model
     {       
                     $despesa = auth()->user()->despesa()->create([
         
-                        'type'          => 'T',
+                        'type'          => 'I',
                         'origem_id'        => $data['origem_id'], 
                         'descricao'     => $data['descricao'],
                         'date'          => $data['date'],
