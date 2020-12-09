@@ -1,26 +1,24 @@
 <?php
 
-namespace App\Http\Controllers\Admin;
+namespace App\Http\Controllers\admin;
 
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 use App\Models\Despesa;
 use App\Models\Origem;
 use App\User;
-use DateTime;
-use Illuminate\Support\Facades\Storage;
-use Illuminate\Support\Facades\Validator;
 
-class ReceitaController extends Controller
+class InvestimentoController extends Controller
 {
-    public function index()
+    public function index(Despesa $despesa)
     {
 
     $despesas = auth()->user()->despesa()->get();
 
     $origems = auth()->user()->origem()->get();
+
     
-    return view('financeiro.receita.index', compact('despesas', 'origems'));
+    return view('financeiro.investimento.index', compact('despesas', 'origems'));
 
     }
 
@@ -35,24 +33,24 @@ class ReceitaController extends Controller
     }
 
 
-    public function storeReceita(Request $request)
+    public function storeInvestimento(Request $request)
     {
         // instaciando $despesa com objeto do Model Despesa
 
         $data = $this->validateRequest();
         
-        $receita = new despesa();
+        $investimento = new despesa();
 
         // Chamando a objeto a funcao do model despesa e passando o array 
         // capiturado no formulario da view financeiro/despesa
 
-        $response = $receita->storeReceita($request->all());
+        $response = $investimento->storeInvestimento($request->all());
 
 
         if ($response['sucess'])
 
             return redirect()
-                        ->route('receita.index')
+                        ->route('investimento.index')
                         ->with('sucess', $response['mensage']);
                     
 
@@ -81,9 +79,14 @@ class ReceitaController extends Controller
     public function edit(Despesa $despesa)
     {
       
+
+      // $contas = auth()->user()->storeDespesa()->get();
+
         $origems = auth()->user()->origem()->get();
 
-        return view('financeiro.receita.edit',compact('despesa','origems'));
+         // dd($despesa);
+
+        return view('financeiro.investimento.edit',compact('despesa','origems'));
     }
 
     /**
@@ -114,7 +117,7 @@ class ReceitaController extends Controller
 
         $despesa -> update($data);
 
-        return redirect('financeiro/receita/index');
+        return redirect('financeiro/investimento/index');
     }
 
     /**
@@ -134,12 +137,10 @@ class ReceitaController extends Controller
 
         return request()->validate([
 
-            //    'date'          => 'required', 
-                'origem_id'     => 'required', 
-                'descricao'     => 'required',
-                'valor'         => 'required',
+               'origem_id'     => 'required', 
+               'descricao'     => 'required',
+               'valor'         => 'required',
 
        ]);
     }
-
 }

@@ -31,8 +31,8 @@
 
 @section('content_header')  
 <div class="row">     
-     <img class="card-img-top img-responsive img-thumbnail" src="{{ asset('img/cards/despesas.jpeg')}}"  style="height: 50px; width: 50px;"alt="Imagem" >
-    <h1 class="ml-2  text-center">Registrar Despesas</h1>
+     <img class="card-img-top img-responsive img-thumbnail" src="{{ asset('img/cards/receitas.jpeg')}}"  style="height: 50px; width: 50px;"alt="Imagem" >
+    <h1 class="ml-2  text-center">Registrar Receita</h1>
 </div>
 @stop
 
@@ -54,17 +54,16 @@
         -->
 
   
-        <form method="POST" action="{{ route('despesa_conta.store')}}">
+        <form method="POST" action="{{ route('receita.store')}}">
             <div class="form-group">
                 {!! csrf_field() !!}
 
-
+                
                 <div class='table-responsive'>
 
                 <table id="example1" class="table table-sm table-bordered table-striped dataTable dtr-inline collapsed" role="grid" aria-describedby="example1_info">
                     <thead>
                         <tr>
-                            <th></th>
                             <th class="sorting_asc" tabindex="0" aria-controls="" rowspan="0" colspan="1"  aria-label="">Data</th>
                             <th class="sorting" tabindex="0" aria-controls="example1" rowspan="1" colspan="1" aria-label="Browser: activate to sort column ascending">Origem</th>
                             <th class="sorting" tabindex="0" aria-controls="example1" rowspan="1" colspan="1" aria-label="Platform(s): activate to sort column ascending">Despesa</th>
@@ -74,17 +73,14 @@
                     </thead>
                 
                     <tbody>
-                        @forelse($despesa_contas as $despesa_conta)
+                        @forelse($despesas as $despesa)
 
-                            @if( $despesa_conta->type == "D")
+                            @if( $despesa->type == "R")
                                 <tr>
-                                    <td 
-                                    <a href= "#" class="btn btn-primary btn-sm">Editar</a> 
-                                </td>
-                                    <td class="text-sm">{{ $despesa_conta->date }}</td>  
-                                    <td class="text-sm">{{ $despesa_conta->origem->descricao }}</td>
-                                    <td class="text-sm">{{ $despesa_conta->descricao }}</td>
-                                    <td class="text-sm">{{ number_format($despesa_conta->valor, 2 , ',', '.')  }}</td>
+                                    <td class="text-sm">{{ $despesa->date }}</td>  
+                                    <td class="text-sm">{{ $despesa->origem->descricao }}</td>
+                                    <td class="text-sm">{{ $despesa->descricao }}</td>
+                                    <td class="text-sm">{{ number_format($despesa->valor, 2 , ',', '.')  }}</td>
                                 </tr>
                             @endif
                             @empty
@@ -97,30 +93,31 @@
 
             <p class="text-right"> <a href="{{ url('/home') }}" class="text-right">Voltar </a> </p>
            
-            <form method="POST" action="{{ route('despesa_conta.store')}}">
+            <form method="POST" action="{{ route('receita.store')}}">
                 <div class="form-group">
                     {!! csrf_field() !!}
          
-       
-                    <div class="form-group in-line">
-                        <input type="hidden" value="{{date('d/m/Y')}}" class="form-control" id="data" name='data' placeholder="Data">
-                    </div>
-            
-
-            <div class="form-group row">
-                <!--     <input type="date" name="date"  class="form-control py-3"> -->
-                <label for="origem_id">Escolha a origem</label>
-                <select name="origem_id" id="origem_id" class="form-control">
-                    @foreach($origems as $origem)
-                        @if($origem->em_uso =="S")
-                            <option value="{{$origem->id}}" >{{$origem->descricao}}</option>
+                    <div class="form-group row">
+                        <label for="name">Data</label>
+                        <input type="date" class="form-control" value="<?php echo date('d/m/Y');?>" id="date" name='date' placeholder="<?php echo date('d/m/Y');?>" required>
+                        @if($errors->has('date'))
+                                <h6 class="text-danger" >Digite a data</h6> 
                         @endif
-                    @endforeach
-                </select>
-                @if($errors->has('origem_id'))
-                    <h6 class="text-danger" >Digite a Descrição</h6> 
-                @endif
-            </div>
+                    </div>
+                    <div class="form-group row">
+                        <!--     <input type="date" name="date"  class="form-control py-3"> -->
+                        <label for="origem_id">Escolha a origem</label>
+                        <select name="origem_id" id="origem_id" class="form-control">
+                            @foreach($origems as $origem)
+                                @if($origem->em_uso =="S")
+                                    <option value="{{$origem->id}}" >{{$origem->descricao}}</option>
+                                @endif
+                            @endforeach
+                        </select>
+                        @if($errors->has('origem_id'))
+                            <h6 class="text-danger" >Digite a Descrição</h6> 
+                        @endif
+                    </div>
                     
                  <div class="form-group row">
                      <input type="txt" name="descricao"  class="form-control py-3" placeholder="Descrição">
@@ -138,7 +135,7 @@
                 </div> 
 
                 <div class="form-group">
-                    <button type="submit" class="btn btn-danger btn-block">Registrar a despesa</button>
+                    <button type="submit" class="btn btn-success btn-block">Registrar a receitas</button>
                 </div>
             <a href="#" id="ancora"></a>
         </form>
@@ -219,5 +216,7 @@
   </script>
 
 @stop
+
+ 
 
  

@@ -17,6 +17,7 @@ class Despesa extends Model
     protected $fillable = [ 
     
         'user_id',
+        'date',
         'type',
         'origem_id', 
         'descricao',
@@ -53,23 +54,9 @@ class Despesa extends Model
     public function storeDespesa(array $data): Array
     {
 
-            // recebe o array do controller Despesa -> storeDespesa e grava na tabela
 
-       $lastDespesa = auth()->user()->despesa()->latest()->first();
+ // recebe o array do controller Despesa -> storeDespesa e grava na tabela
 
-  
-
-       //dd($lastDespesa);
-
-       if($lastDespesa){
-
-        $lastValor = $lastDespesa->total_after;
-
-        $afterValor = $lastValor - $data['valor'];
-
-
-
-      // dd($data['valor'],$lastValor,$afterValor);
        
             $despesa = auth()->user()->despesa()->create([
 
@@ -77,30 +64,11 @@ class Despesa extends Model
                 'origem_id'     => $data['origem_id'], 
                 'descricao'     => $data['descricao'],
                 'date'          => $data['date'],
-                'total_before'  => $lastValor,
-                'total_after'   => $afterValor,
                 'valor'         => $data['valor'],
                 'validade'      => 'S'
 
-         ]);
-     //    dd($data['valor']);
-            }
-
-         else{
-
-            $despesa = auth()->user()->despesa()->create([
-                'type'          => 'D',
-                'origem_id'        => $data['origem_id'], 
-                'descricao'     => $data['descricao'],
-                'total_before'   => 0,
-                'total_after'    => -$data['valor'],
-                'date'          => $data['date'],
-                'valor'         => $data['valor'],
-                'validade'      => 'S'  
                 ]);
-               
-        
-    }
+   
        if($despesa){
 
             DB::commit();
@@ -130,19 +98,6 @@ class Despesa extends Model
 
     public function storeReceita(array $data): Array
     {
-
-
-       $lastReceita = auth()->user()->despesa()->latest()->first();
-
-       //dd($lastDespesa);
-
-       if($lastReceita){
-
-        $lastValor = $lastReceita->total_after;
-
-        $afterValor = $lastValor + $data['valor'];
-
-    
        
             $despesa = auth()->user()->despesa()->create([
 
@@ -150,29 +105,11 @@ class Despesa extends Model
                 'origem_id'        => $data['origem_id'], 
                 'descricao'     => $data['descricao'],
                 'date'          => $data['date'],
-                'total_before'  => $lastValor,
-                'total_after'   => $afterValor,
                 'valor'         => $data['valor'],
                 'validade'      => 'S'
 
          ]);
 
-            }
-
-         else{
-
-            $despesa = auth()->user()->despesa()->create([
-                'type'          => 'R',
-                'origem_id'        => $data['origem_id'], 
-                'descricao'     => $data['descricao'],
-                'total_before'   => 0,
-                'total_after'    => $data['valor'],
-                'date'          => $data['date'],
-                'valor'         => $data['valor'],
-                'validade'      => 'S'  
-                ]);
-        
-    }
        if($despesa){
 
             DB::commit();
@@ -192,9 +129,64 @@ class Despesa extends Model
                     'sucess' => false,
                     'mensage'=> 'Falha ao registrar a receita'
             ];
-            }
+        }
+    }
+
+          /*********************************
+     * Registrando nova receita e o saldo
+     ******************************/
+
+    public function storeInvestimento(array $data): Array
+    {       
+                    $despesa = auth()->user()->despesa()->create([
+        
+                        'type'          => 'T',
+                        'origem_id'        => $data['origem_id'], 
+                        'descricao'     => $data['descricao'],
+                        'date'          => $data['date'],
+                        'valor'         => $data['valor'],
+                        'validade'      => 'S'
+        
+                 ]);
+        
+               if($despesa){
+        
+                    DB::commit();
+        
+                    return[
+                        'sucess' => true,
+                        'mensage'=> 'Receita registrada com sucesso'
+                    ];
+        
+                    }
+        
+               else {
+        
+                    DB::rollback();
+        
+                    return[
+                            'sucess' => false,
+                            'mensage'=> 'Falha ao registrar a receita'
+                    ];
+                    }
 
     }
+
+    public function storePrimeiro()
+    {
+       
+            $despesa = auth()->user()->despesa()->create([
+
+                'type'          => 'R',
+                'origem_id'        => 1, 
+                'descricao'     => "Saldo inicial",
+                'date'          => "2000-01-01",
+                'valor'         => 0,
+                'validade'      => 'S'
+
+         ]);
+        }
+
     public function user()
     {
         return $this->belongsTo(User::class);

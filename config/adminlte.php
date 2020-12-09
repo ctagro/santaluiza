@@ -270,7 +270,7 @@ return [
         [
             'text'       => 'Registrar Despesas',
             'icon_color' => 'cyan',
-            'url'        => 'financeiro/despesa_conta/index',
+            'url'        => 'financeiro/despesa/index',
             'icon'        => 'fas fa-calendar-minus',
 
         ],
@@ -278,39 +278,26 @@ return [
         [
             'text'       => 'Registrar Receitas',
             'icon_color' => 'cyan',
-            'url'        => 'financeiro/receita_conta/index',
+            'url'        => 'financeiro/receita/index',
             'icon'        => 'fas fa-calendar-plus', 
 
         ],
 
         [
-            'text'       => 'Saldo',
+            'text'       => 'Registrar Investimentos',
+            'icon_color' => 'cyan',
+            'url'        => 'financeiro/investimento/index',
+            'icon'        => 'fas fa-calendar-minus',
+
+        ],
+
+        [
+            'text'       => 'Fluxo de Caixa',
             'icon_color' => 'cyan',
             'url'        => 'financeiro/fluxoDeCaixa',
             'icon'        => 'fas fa-chart-line', 
-
-        ],
-        ['header' => 'Conta a Pagar e Receber'],
-        [
-            'text'       => 'Contas a Receber',
-            'icon_color' => 'green',
-            'url'  => 'financeiro/receita/index',
-            'icon'        => 'fas fa-money-bill-wave',
-        ],
-        [
-            'text'       => 'Contas a Pagar',
-            'icon_color' => 'yellow',
-            'url'  => 'financeiro/despesa/index',
-            'icon'        => 'fas fa-money-bill',
         ],
 
-        [
-            'text'       => 'Fluxo Futuro',
-            'icon_color' => 'cyan',
-            'url'        => 'financeiro/fluxoDeCaixa_futuro',
-            'icon'        => 'fas fa-chart-line', 
-
-        ],
 
         ['header' => 'Configurações'],
         [
@@ -318,9 +305,7 @@ return [
             'icon_color' => 'green',
             'url'  => '/origems',
             'icon'        => 'fas fa-money-bill-wave',
-        ],
-
-        
+        ],  
         
     ],
 

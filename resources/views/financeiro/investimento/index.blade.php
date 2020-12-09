@@ -32,7 +32,7 @@
 @section('content_header')  
 <div class="row">     
      <img class="card-img-top img-responsive img-thumbnail" src="{{ asset('img/cards/despesas.jpeg')}}"  style="height: 50px; width: 50px;"alt="Imagem" >
-    <h1 class="ml-2  text-center">Registrar Receita</h1>
+    <h1 class="ml-2  text-center">Registrar Investimento</h1>
 </div>
 @stop
 
@@ -59,19 +59,19 @@
                     <tbody>
                         @forelse($despesas as $despesa)
 
-                            @if( $despesa->type == "R")
+                            @if( $despesa->type == "T")
                                 <tr>
                                     <td>
-                                       <a href= "{{ route('receita.edit' ,[ 'despesa' => $despesa->id ])}}" >{{ $despesa->date }}</a>
+                                       <a href= "{{ route('investimento.edit' ,[ 'despesa' => $despesa->id ])}}" >{{ $despesa->date }}</a>
                                     </td>
                                     <td>
-                                        <a href= "{{ route('receita.edit' ,[ 'despesa' => $despesa->id ])}}" >{{ $despesa->origem->descricao }}</a>
+                                        <a href= "{{ route('investimento.edit' ,[ 'despesa' => $despesa->id ])}}" >{{ $despesa->origem->descricao }}</a>
                                     </td>
                                     <td>
-                                        <a href= "{{ route('receita.edit' ,[ 'despesa' => $despesa->id ])}}" >{{ $despesa->descricao }}</a>
+                                        <a href= "{{ route('investimento.edit' ,[ 'despesa' => $despesa->id ])}}" >{{ $despesa->descricao }}</a>
                                     </td>
                                     <td>
-                                        <a href= "{{ route('receita.edit' ,[ 'despesa' => $despesa->id ])}}" >{{ number_format($despesa->valor, 2 , ',', '.')  }}</a>
+                                        <a href= "{{ route('investimento.edit' ,[ 'despesa' => $despesa->id ])}}" >{{ number_format($despesa->valor, 2 , ',', '.')  }}</a>
                                     </td>
                                 </tr>
                             @endif
@@ -80,7 +80,7 @@
                     </tbody>
         
                 </table>
-             
+                
                 @if(isset($despesa->date))
                     <?php $despesa->date = Null ?>
                     <?php $despesa->origem_id = Null ?>
@@ -94,7 +94,7 @@
              
     <!-- Inicio do Formulario de despesa_conta --> 
 
-        @include('financeiro.receita.create')
+        @include('financeiro.investimento.create')
            
 <!-- Fim do Formulario de despesa_conta --> 
 

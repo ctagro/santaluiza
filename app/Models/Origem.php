@@ -56,6 +56,17 @@ public function storeOrigem(array $data): Array
 
     }
 
+    public function storePrimeiro()
+    {
+
+            $origem = auth()->user()->origem()->create([
+
+                'codigo'          => "AP",
+                'descricao'     =>  "Aporte",
+                'em_uso'          => "S",
+
+         ]);
+    }
 
 public function despesa()
     {

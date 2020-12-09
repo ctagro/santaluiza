@@ -27,7 +27,7 @@
 
 @extends('adminlte::page')
 
-@section('title', 'Receita')
+@section('title', 'Despesas')
 
 @section('content_header')  
 <div class="row">     
@@ -54,7 +54,7 @@
         -->
 
   
-        <form method="POST" action="{{ route('receita_conta.store')}}">
+        <form method="POST" action="{{ route('receita.store')}}">
             <div class="form-group">
                 {!! csrf_field() !!}
 
@@ -73,14 +73,14 @@
                     </thead>
                 
                     <tbody>
-                        @forelse($despesa_contas as $despesa_conta)
+                        @forelse($despesas as $despesa)
 
-                            @if( $despesa_conta->type == "R")
+                            @if( $despesa->type == "R")
                                 <tr>
-                                    <td class="text-sm">{{ $despesa_conta->date }}</td>  
-                                    <td class="text-sm">{{ $despesa_conta->origem->descricao }}</td>
-                                    <td class="text-sm">{{ $despesa_conta->descricao }}</td>
-                                    <td class="text-sm">{{ number_format($despesa_conta->valor, 2 , ',', '.')  }}</td>
+                                    <td class="text-sm">{{ $despesa->date }}</td>  
+                                    <td class="text-sm">{{ $despesa->origem->descricao }}</td>
+                                    <td class="text-sm">{{ $despesa->descricao }}</td>
+                                    <td class="text-sm">{{ number_format($despesa->valor, 2 , ',', '.')  }}</td>
                                 </tr>
                             @endif
                             @empty
@@ -93,14 +93,17 @@
 
             <p class="text-right"> <a href="{{ url('/home') }}" class="text-right">Voltar </a> </p>
            
-            <form method="POST" action="{{ route('receita_conta.store')}}">
+            <form method="POST" action="{{ route('receita.store')}}">
                 <div class="form-group">
                     {!! csrf_field() !!}
          
-                    <div class="form-group in-line">
-                        <input type="hidden" value="{{date('d/m/Y')}}" class="form-control" id="data" name='data' placeholder="Data">
+                    <div class="form-group row">
+                        <label for="name">Data</label>
+                        <input type="date" class="form-control" value="<?php echo date('d/m/Y');?>" id="date" name='date' placeholder="<?php echo date('d/m/Y');?>" required>
+                        @if($errors->has('date'))
+                                <h6 class="text-danger" >Digite a data</h6> 
+                        @endif
                     </div>
-                    
                     <div class="form-group row">
                         <!--     <input type="date" name="date"  class="form-control py-3"> -->
                         <label for="origem_id">Escolha a origem</label>

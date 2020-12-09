@@ -39,31 +39,15 @@
 @section('content')
 
 
-    
-   <!--         <div class="">
-    
-                    <div class="dataTables_length" id="example1_length">
-                        <label>Linhas<select name="" aria-controls="example1" class="custom-select custom-select-sm form-control form-control-sm">
-                        <option value="10">10</option>
-                        <option value="25">25</option>
-                        <option value="50">50</option>
-                        <option value="100">100</option>
-                    </select> </label>
-            
-            </div>
-        -->
 
-  
-        <form method="POST" action="{{ route('despesa.store')}}">
-            <div class="form-group">
-                {!! csrf_field() !!}
-
+<!-- Inicio da Tabela dos registros -->
 
                 <div class='table-responsive'>
 
                 <table id="example1" class="table table-sm table-bordered table-striped dataTable dtr-inline collapsed" role="grid" aria-describedby="example1_info">
                     <thead>
                         <tr>
+                    
                             <th class="sorting_asc" tabindex="0" aria-controls="" rowspan="0" colspan="1"  aria-label="">Data</th>
                             <th class="sorting" tabindex="0" aria-controls="example1" rowspan="1" colspan="1" aria-label="Browser: activate to sort column ascending">Origem</th>
                             <th class="sorting" tabindex="0" aria-controls="example1" rowspan="1" colspan="1" aria-label="Platform(s): activate to sort column ascending">Despesa</th>
@@ -77,10 +61,18 @@
 
                             @if( $despesa->type == "D")
                                 <tr>
-                                    <td class="text-sm">{{ $despesa->date }}</td>  
-                                    <td class="text-sm">{{ $despesa->origem->descricao }}</td>
-                                    <td class="text-sm">{{ $despesa->descricao }}</td>
-                                    <td class="text-sm">{{ number_format($despesa->valor, 2 , ',', '.')  }}</td>
+                                    <td>
+                                       <a href= "{{ route('despesa.edit' ,[ 'despesa' => $despesa->id ])}}" >{{ $despesa->date }}</a>
+                                    </td>
+                                    <td>
+                                        <a href= "{{ route('despesa.edit' ,[ 'despesa' => $despesa->id ])}}" >{{ $despesa->origem->descricao }}</a>
+                                    </td>
+                                    <td>
+                                        <a href= "{{ route('despesa.edit' ,[ 'despesa' => $despesa->id ])}}" >{{ $despesa->descricao }}</a>
+                                    </td>
+                                    <td>
+                                        <a href= "{{ route('despesa.edit' ,[ 'despesa' => $despesa->id ])}}" >{{ number_format($despesa->valor, 2 , ',', '.')  }}</a>
+                                    </td>
                                 </tr>
                             @endif
                             @empty
@@ -88,93 +80,25 @@
                     </tbody>
         
                 </table>
+
+                @if(isset($despesa->date))
+                    <?php $despesa->date = Null ?>
+                    <?php $despesa->origem_id = Null ?>
+                    <?php $despesa->descricao = Null ?>
+                    <?php $despesa->valor = Null ?>
+                @endif
                 
             </div>
 
-            <p class="text-right"> <a href="{{ url('/home') }}" class="text-right">Voltar </a> </p>
+<!-- Fim da Tabela dos registros -->
+             
+    <!-- Inicio do Formulario de despesa_conta --> 
+
+        @include('financeiro.despesa.create')
            
-            <form method="POST" action="{{ route('despesa.store')}}">
-                <div class="form-group">
-                    {!! csrf_field() !!}
-         
-            <div class="form-group row">
-                <label for="name">Data</label>
-                <input type="date" class="form-control" value="<?php echo date('d/m/Y');?>" id="date" name='date' placeholder="<?php echo date('d/m/Y');?>" required>
-                @if($errors->has('date'))
-                        <h6 class="text-danger" >Digite a data</h6> 
-                @endif
-            </div>
-            <div class="form-group row">
-                <!--     <input type="date" name="date"  class="form-control py-3"> -->
-                <label for="origem_id">Escolha a origem</label>
-                <select name="origem_id" id="origem_id" class="form-control">
-                    @foreach($origems as $origem)
-                        @if($origem->em_uso =="S")
-                            <option value="{{$origem->id}}" >{{$origem->descricao}}</option>
-                        @endif
-                    @endforeach
-                </select>
-                @if($errors->has('origem_id'))
-                    <h6 class="text-danger" >Digite a Descrição</h6> 
-                @endif
-            </div>
-                    
-                 <div class="form-group row">
-                     <input type="txt" name="descricao"  class="form-control py-3" placeholder="Descrição">
-                     @if($errors->has('descricao'))
-                         <h6 class="text-danger" >Digite a Descrição</h6> 
-                     @endif
-                    </div>
-                 <div class="form-group row">
-                  <input type="number" name="valor"  class="form-control py-3" placeholder="Valor da despesa">
-                    @if($errors->has('valor'))
-                        <h6 class="text-danger" >Digite o valor</h6> 
-                    @endif
-                </div> 
-            </div>
-                </div> 
+<!-- Fim do Formulario de despesa_conta --> 
 
-                <div class="form-group">
-                    <button type="submit" class="btn btn-danger btn-block">Registrar a despesa</button>
-                </div>
-            <a href="#" id="ancora"></a>
-        </form>
-
-
-<!--        <div class="row">
-            <div class="col-sm-12 col-md-5">
-                <div class="dataTables_info" id="example1_info" role="status" aria-live="polite">Showing 1 to 10 of 57 entries</div>
-            </div>
-
-            <div class="col-sm-12 col-md-7">
-                <div class="dataTables_paginate paging_simple_numbers" id="example1_paginate">
-                    <ul class="pagination">
-                        <li class="paginate_button page-item previous disabled" id="example1_previous">
-                            <a href="#" aria-controls="example1" data-dt-idx="0" tabindex="0" class="page-link">Previous</a>
-                        </li>
-                        <li class="paginate_button page-item active">
-                            <a href="#" aria-controls="example1" data-dt-idx="1" tabindex="0" class="page-link">1</a>
-                        </li><li class="paginate_button page-item ">
-                            <a href="#" aria-controls="example1" data-dt-idx="2" tabindex="0" class="page-link">2</a>
-                        </li>
-                        <li class="paginate_button page-item ">
-                            <a href="#" aria-controls="example1" data-dt-idx="3" tabindex="0" class="page-link">3</a>
-                        </li>
-                        <li class="paginate_button page-item "><a href="#" aria-controls="example1" data-dt-idx="4" tabindex="0" class="page-link">4</a>
-                        </li>
-                        <li class="paginate_button page-item ">
-                            <a href="#" aria-controls="example1" data-dt-idx="5" tabindex="0" class="page-link">5</a>
-                        </li>
-                        <li class="paginate_button page-item ">
-                            <a href="#" aria-controls="example1" data-dt-idx="6" tabindex="0" class="page-link">6</a>
-                        </li>
-                        <li class="paginate_button page-item next" id="example1_next">
-                            <a href="#" aria-controls="example1" data-dt-idx="7" tabindex="0" class="page-link">Next</a>
-                        </li>
-                    </ul>
-                 </div>
-            </div>
-        -->
+<p class="text-right"> <a href="{{ url('/home') }}" class="text-right">Voltar </a> </p>
 
 </body>
 
