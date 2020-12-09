@@ -18,7 +18,7 @@ class CreateDespesasTable extends Migration
             $table->unsignedBigInteger('user_id');
             $table->foreign('user_id')->references('id')->on('users')->onDelete('cascade');
             $table->unsignedBigInteger('origem_id');
-            $table->enum('type',['R','D','T']);
+            $table->enum('type',['R','D','I','T']);
             $table->text('descricao');
             $table->double('valor',10,2);
             $table->integer('user_id_transaction')->nullable();
