@@ -70,7 +70,7 @@
                             <th class="text-sm" >{{ $despesa->type }}</th>
                             <th class="text-sm" >{{ $despesa->origem->codigo }}</th>
                             <td class="text-sm">{{ $despesa->descricao }}</td>
-                            @if( $despesa->type == "D" )
+                            @if( $despesa->type == "D" OR $despesa->type == "I")
                                  <td class="text-sm">{{ number_format((-1 * $despesa->valor), 2 , ',', '.')  }}</td>
                                  <?php $saldo = $saldo - $despesa->valor ?>
                             @else

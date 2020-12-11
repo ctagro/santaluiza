@@ -44,7 +44,7 @@
         </div>
 
         <div class="col-md-4 col-sm-12">
-            <a href="{{ route('financeiro.fluxoDeCaixa') }}" class="">
+            <a href="{{ route('investimento.index') }}" class="">
             <div class="card">
                 <h5 class="mt-2 text-center">Registrar Investimentos</h5>
     
@@ -58,7 +58,7 @@
         </div>
         
         <div class="col-md-4 col-sm-12">
-            <a href="{{ route('despesa.index') }}" class="">
+            <a href="{{ route('financeiro.fluxoDeCaixa') }}" class="">
                 <div class="card">
                     <h5 class="mt-2 text-center">Fluxo de Caixa</h5>
                      <img class="card-img-top img-responsive img-thumbnail" src="{{ asset('img/cards/fluxo_de_caixa.jpeg')}}"  style="height: 200px;"alt="Espaço reservado para exibição de imagens" >
