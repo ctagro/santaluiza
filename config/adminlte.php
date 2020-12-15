@@ -306,6 +306,13 @@ return [
             'url'  => '/origems',
             'icon'        => 'fas fa-money-bill-wave',
         ],  
+
+        [
+            'text'       => 'Manutenção',
+            'icon_color' => 'green',
+            'url'  => 'admin/manutencao/index',
+            'icon'        => 'fas fa-money-bill-wave',
+        ],  
         
     ],
 
