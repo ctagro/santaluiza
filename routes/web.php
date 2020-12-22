@@ -31,6 +31,9 @@ Route::patch('financeiro/investimento/{despesa}', [App\Http\Controllers\Admin\In
 
 Route::get('financeiro/fluxoDeCaixa', [App\Http\Controllers\Admin\DespesaController::class, 'fluxoDeCaixa'])->name('financeiro.fluxoDeCaixa')-> middleware('auth');
 
+
+Route::post('admin/manutencao/pesquisa', [App\Http\Controllers\Admin\ManutencaoController::class, 'pesquisa'])->name('manutencao.pesquisa')-> middleware('auth');
+Route::get('admin/manutencao/consulta', [App\Http\Controllers\Admin\ManutencaoController::class, 'consulta'])->name('manutencao.consulta')-> middleware('auth');
 Route::get('admin/manutencao/index', [App\Http\Controllers\Admin\ManutencaoController::class, 'index'])->name('manutencao.index')-> middleware('auth');
 Route::post('admin/manutencao/store', [App\Http\Controllers\Admin\ManutencaoController::class, 'storemanutencao'])->name('manutencao.store')-> middleware('auth');
 Route::get('admin/manutencao/{despesa}/edit', [App\Http\Controllers\Admin\ManutencaoController::class,'edit'])->name('manutencao.edit')-> middleware('auth');

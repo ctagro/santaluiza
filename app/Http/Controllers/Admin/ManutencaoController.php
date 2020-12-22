@@ -26,18 +26,69 @@ class ManutencaoController extends Controller
 
        $origems = origem::all();
 
-
         return view('admin.manutencao.index', compact('despesas','origems'));
     }
 
+    public function consulta()
+
+    {
+
+        $origems = origem::all();
+
+        $users = user::all();
+        $despesas = despesa::all();
+
+        // dd($pesquisa['type']);
+
+            return view('admin.manutencao.consulta', compact('users','origems'));
+
+    }
     /**
      * Show the form for creating a new resource.
      *
      * @return \Illuminate\Http\Response
      */
-    public function create()
+    
+    
+    
+     public function pesquisa(Request $request)
     {
-        //
+
+       $pesquisa = $request;
+
+
+        $termos = $request->only('type', 'origem_id', 'descricao', 'date_inicial', 'date_final' );
+        $prepareQuery = "";
+        $query = "";
+        foreach ($termos as $nome => $valor) {
+
+            if($valor){
+              //  $query = $query . "where("."'".$nome."'".","."'"."="."'".","."'". $valor. "')->";
+                if ($nome == "descricao")
+                    $prepareQuery = $prepareQuery . $nome. ' LIKE "'. '%'.$valor.'%'. '" AND ';   
+                if ($nome == "type" or $nome == "origem_id")
+                    $prepareQuery = $prepareQuery . $nome. '="'. $valor. '" AND ';
+                if ($nome == "date_inicial") 
+                        $prepareQuery = $prepareQuery . 'date'. '>="'. $valor. '" AND ';
+                if ($nome == "date_final")
+                        $prepareQuery = $prepareQuery . 'date'. '<="'. $valor. '" AND ';
+            
+            }
+         }
+   
+         $query = substr($prepareQuery, 0 , -5);
+      
+
+         if ($query)
+         $despesas = despesa::whereRaw($query)->orderBy('date')->get();
+         else
+         $despesas = despesa::orderBy('date')->get();
+          
+    $origems = origem::all();
+
+    $users = user::all();
+ 
+    return view('admin.manutencao.index', compact('despesas','origems','users'));
     }
 
     /**
@@ -46,13 +97,14 @@ class ManutencaoController extends Controller
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
-    public function storeDespesa(Request $request)
+    public function store(Request $request)
     {
         // instaciando $despesa com objeto do Model Despesa
 
         $data = $this->validateRequest();
+
   
-        $despesa = new despesa(); 
+       $despesa = new despesa(); 
 
         // Chamando a objeto a funcao do model despesa e passando o array 
         // capiturado no formulario da view financeiro/despesa
@@ -97,6 +149,8 @@ class ManutencaoController extends Controller
 
         $origems = origem::all();
         $users = user::all();
+
+    
 
 
 

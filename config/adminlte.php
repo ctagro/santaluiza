@@ -313,6 +313,13 @@ return [
             'url'  => 'admin/manutencao/index',
             'icon'        => 'fas fa-money-bill-wave',
         ],  
+
+        [
+            'text'       => 'Consulta',
+            'icon_color' => 'green',
+            'url'  => 'admin/manutencao/consulta',
+            'icon'        => 'fas fa-money-bill-wave',
+        ],  
         
     ],
 
