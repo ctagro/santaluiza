@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
   
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title>Despesas</title>
+    <title>Consulta</title>
      <!-- Tell the browser to be responsive to screen width -->
   <meta name="viewport" content="width=device-width, initial-scale=1">
 
@@ -54,6 +54,7 @@
                             <th class="sorting" tabindex="0" aria-controls="example2" rowspan="1" colspan="1" aria-label="Engine version: activate to sort column ascending">Origem</th>
                             <th class="sorting" tabindex="0" aria-controls="example2" rowspan="1" colspan="1" aria-label="Engine version: activate to sort column ascending">Descrição</th> 
                             <th class="sorting" tabindex="0" aria-controls="example2" rowspan="1" colspan="1" aria-label="Engine version: activate to sort column ascending">Valor</th> 
+                      
                 
 
                             <th class="sorting" tabindex="0" aria-controls="example1" rowspan="1" colspan="1" aria-label="CSS grade: activate to sort column ascending" style="display: none;">CSS grade</th>
@@ -62,7 +63,7 @@
                 
                     <tbody>
 
-                        <?php $saldo = 0 ?>
+                        <?php $somatorio = 0 ?>
 
                         @forelse($despesas as $despesa)
 
@@ -88,19 +89,28 @@
                                     @if( $despesa->type == "D" OR $despesa->type == "I")
                                         <td> 
                                             <a href= "{{ route('manutencao.edit' ,[ 'despesa' => $despesa->id ])}}" >{{ number_format((-1 * $despesa->valor), 2 , ',', '.') }}</a>
+
                                         </td>
-                            
+                                        <?php $somatorio = $somatorio - $despesa->valor ?>
                                     @else
                                         <td> 
                                             <a href= "{{ route('manutencao.edit' ,[ 'despesa' => $despesa->id ])}}" >{{ number_format($despesa->valor, 2 , ',', '.')  }}</a>   
                                         </td>
+                                        <?php $somatorio = $somatorio + $despesa->valor ?>
                                     @endif
-                                          
-                        </tr>
-                                </tr>
+                                    
+
                        
+                                </tr>
+                               
                             @empty
-                        @endforelse                  
+                        @endforelse  
+                            <td>{{ $despesa->date }}</td>
+                            <td>Somatório</td>
+                            <td></td>  <td></td> <td></td>
+
+
+                        <td><p>{{ number_format($somatorio, 2 , ',', '.')  }}</p></td>                
                     </tbody>
         
                 </table>

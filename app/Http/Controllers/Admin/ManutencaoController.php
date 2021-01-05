@@ -21,6 +21,7 @@ class ManutencaoController extends Controller
      */
     public function index()
     {
+ 
 
        $despesas = despesa::all();
 
