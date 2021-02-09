@@ -54,7 +54,6 @@
         <h6 class="text-danger" >Digite a Origem</h6> 
     @endif
 </div>
-    
 <div class="form-group row">
     <input type="txt" name="descricao" value="{{old('descricao') ?? $despesa->descricao }}" class="form-control py-3" placeholder="Descrição">
     @if($errors->has('descricao'))

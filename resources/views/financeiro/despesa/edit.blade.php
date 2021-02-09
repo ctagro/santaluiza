@@ -54,12 +54,12 @@
                  </div>
              </div>
 
-  <!-- Link para deletar inativo
+  <!-- Link para deletar inativo -->
     
              <div class="row justify-content-between" >
 
               <a href= "{{ route('despesa.show' ,[ 'despesa' => $despesa->id ])}}" class="btn btn-outline-danger" >Deletar</a>
-   -->
+   
               <div class="text-right"> <a href="{{ url('financeiro/despesa/index') }}" class="text-right">Voltar </a> </div>
              </div>
          <a href="#" id="ancora"></a>

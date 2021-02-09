@@ -26,12 +26,12 @@
 
 @extends('adminlte::page')
 
-@section('title', 'Despesas')
+@section('title', 'Consulta')
 
 @section('content_header')  
 <div class="row">     
      <img class="card-img-top img-responsive img-thumbnail" src="{{ asset('img/cards/despesas.jpeg')}}"  style="height: 50px; width: 50px;"alt="Imagem" >
-    <h1 class="ml-2  text-center">Modificar Despesas</h1>
+    <h1 class="ml-2  text-center">Consultar Despesas</h1>
 </div>
 @stop
 

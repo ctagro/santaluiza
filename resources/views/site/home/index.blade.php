@@ -1,83 +1,53 @@
-<!DOCTYPE html>
-<html>
-<head>
-<meta name="viewport" content="width=device-width, initial-scale=1">
-<style>
-body, html {
-  height: 100%;
-  margin: 0;
-  font-family: Arial, Helvetica, sans-serif;
-}
+@extends('layouts.site')
 
-.hero-image {
-  background-image: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), url("img/pimentao_6.jpg");
-  height: 100%;
-  width: 100%;
-  background-position: center;
-  background-repeat: no-repeat;
-  background-size: cover;
-  position: relative;
-}
+@section('content')
+<main>
+<div class="container-fluid">
+    <!-- slider -->
+    <div id="mainSlider" class="carousel slide" data-ride="carousel">
+      <ol class="carousel-indicators">
+        <li data-target="#mainSlider" data-slide-to="0" class="active"></li>
+        <li data-target="#mainSlider" data-slide-to="1"></li>
+        <li data-target="#mainSlider" data-slide-to="2"></li>
+      </ol>
+      <div class="carousel-inner">
+        <div class="carousel-item active">
+          <img src="img/banners/estufa_5.jpg" class="d-block w-100" alt="Projetos de e-commerce">
 
-.hero-text {
-  text-align: center;
-  position: absolute;
-  top: 50%;
-  left: 50%;
-  transform: translate(-50%, -50%);
-  color: white;
-}
+          <!-- tirar classe d-none -->
 
-.hero-text a {
-  border: none;
-  outline: 0;
-  display: inline-block;
-  padding: 10px 50px;
-  color: black;
-  background-color: #ddd;
-  text-align: center;
-  cursor: pointer;
-  margin: 50px;
-}
-
-.hero-text a:hover {
-  background-color: #555;
-  color: white;
-}
-
-
-</style>
-</head>
-<body>
-
-<div class="hero-image">
-  <div class="hero-text">
-    <h1 style="font-size:50px">Fazenda Santa Luiza</h1>
-    <h1></h1>
-    <h2>Controle financeiro e de produção</h2>
-    <h1></h1>
-    <div class="relative flex items-top justify-center min-h-screen bg-gray-100 dark:bg-gray-900 sm:items-center sm:pt-0">
-        @if (Route::has('login'))
-         
-                @auth
-                    <a href="{{ url('/home') }}" class="">Home</a>
-                @else
-                    <a href="{{ route('login') }}" class="">Login</a>
-
-                    @if (Route::has('register'))
-                        <a href="{{ route('register') }}" class="">Register</a>
-                    @endif
-                @endif
-         
-        @endif
-  
-
-
-  </div>
-  
+          <div class="carousel-caption d-nome d-md-block">
+            <h2>Fazenda Santa Luiza</h5>
+            <p>Vagner e Leandro plantando a estufa 2</p>
+            <a href="#" class="main-btn">Mais informações</a>
+          </div>
+        </div>
+        <div class="carousel-item">
+          <img src="img/banners/estufa_7.jpg" class="d-block w-100" alt="Engenharia de software">
+          <div class="carousel-caption d-md-block">
+            <h2>Fazenda Santa Luiza</h5>
+            <p>Estufa 2 plantada</p>
+            <a href="#" class="main-btn">Mais informações</a>
+          </div>
+        </div>
+        <div class="carousel-item">
+          <img src="img/banners/pimentao_4.jpg" class="d-block w-100" alt="Manutenção em software">
+          <div class="carousel-caption d-md-block">
+            <h2>Fazenda Santa Luiza</h5>
+            <p>Estufa 1 produzindo</p>
+            <a href="#" class="main-btn">Mais informações</a>
+          </div>
+        </div>
+      </div>
+      <a class="carousel-control-prev" href="#mainSlider" role="button" data-slide="prev">
+        <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+        <span class="sr-only">Previous</span>
+      </a>
+      <a class="carousel-control-next" href="#mainSlider" role="button" data-slide="next">
+        <span class="carousel-control-next-icon" aria-hidden="true"></span>
+        <span class="sr-only">Next</span>
+      </a>
+    </div>
 </div>
-
-
-
-</body>
-</html>
+</main>
+@endsection

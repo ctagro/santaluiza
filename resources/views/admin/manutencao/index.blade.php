@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
   
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title>Consulta</title>
+    <title>Manutenção</title>
      <!-- Tell the browser to be responsive to screen width -->
   <meta name="viewport" content="width=device-width, initial-scale=1">
 
@@ -32,7 +32,7 @@
 @section('content_header')  
 <div class="row">     
      <img class="card-img-top img-responsive img-thumbnail" src="{{ asset('img/cards/despesas.jpeg')}}"  style="height: 50px; width: 50px;"alt="Imagem" >
-    <h1 class="ml-2  text-center">Manutenção</h1>
+    <h1 class="ml-2  text-center">Manutenção...</h1>
 </div>
 @stop
 
@@ -98,9 +98,8 @@
                                         </td>
                                         <?php $somatorio = $somatorio + $despesa->valor ?>
                                     @endif
-                                    
-
-                       
+                                    </td>
+                                  
                                 </tr>
                                
                             @empty

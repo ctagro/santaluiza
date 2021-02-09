@@ -80,6 +80,8 @@ class DespesaController extends Controller
     public function show(Despesa $despesa)
     {
         $origems = auth()->user()->origem()->get();
+        dd("show");
+
 
         return view('financeiro.despesa.show',compact('despesa','origems'));
     }

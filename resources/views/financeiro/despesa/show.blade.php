@@ -79,7 +79,7 @@
                   <p></p>
 
 
-                  {!! Form::open(['method' => 'DELETE', "{{route('despesa.update' ,[ 'despesa' => $despesa->id ])}}", 'style' => 'display: inline;'])!!}
+                  {!! Form::open(['method' => 'DELETE', "{{route('despesa.destroy' ,[ 'despesa' => $despesa->id ])}}", 'style' => 'display: inline;'])!!}
 
                   <button type="submit" class="btn btn-danger btn-block">Confirma Exclusão</button>
 

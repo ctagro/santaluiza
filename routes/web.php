@@ -5,7 +5,7 @@ use Illuminate\Support\Facades\Route;
 
 Route::get('site/profile/profile', [App\Http\Controllers\Admin\UserController::class, 'profile'])->name('profile')-> middleware('auth');
 Route::post('site/profile/profile', [App\Http\Controllers\Admin\UserController::class, 'profileUpdate'])->name('profile.update')-> middleware('auth');
-
+Route::get('admin/home/index', [App\Http\Controllers\Admin\UserController::class, 'index'])->name('admin.home.index')-> middleware('auth');
 
 Route::get('financeiro/receita/index', [App\Http\Controllers\Admin\ReceitaController::class, 'index'])->name('receita.index')-> middleware('auth');
 Route::post('financeiro/receita/store', [App\Http\Controllers\Admin\ReceitaController::class, 'storeReceita'])->name('receita.store')-> middleware('auth');
@@ -37,8 +37,10 @@ Route::get('admin/manutencao/consulta', [App\Http\Controllers\Admin\ManutencaoCo
 Route::get('admin/manutencao/index', [App\Http\Controllers\Admin\ManutencaoController::class, 'index'])->name('manutencao.index')-> middleware('auth');
 Route::post('admin/manutencao/store', [App\Http\Controllers\Admin\ManutencaoController::class, 'storemanutencao'])->name('manutencao.store')-> middleware('auth');
 Route::get('admin/manutencao/{despesa}/edit', [App\Http\Controllers\Admin\ManutencaoController::class,'edit'])->name('manutencao.edit')-> middleware('auth');
-Route::get('admin/manutencao/{despesa}', [App\Http\Controllers\Admin\ManutencaoController::class,'show'])->name('manutencao.show')-> middleware('auth');
+
+Route::post('admin/manutencao/{despesa}', [App\Http\Controllers\Admin\ManutencaoController::class,'show'])->name('manutencao.show')-> middleware('auth');
 Route::patch('admin/manutencao/{despesa}', [App\Http\Controllers\Admin\ManutencaoController::class,'update'])->name('manutencao.update')-> middleware('auth');
+Route::delete('admin/manutencao/{despesa}', [App\Http\Controllers\Admin\ManutencaoController::class,'deletar'])->name('manutencao.deletar')-> middleware('auth');
 
 
 
@@ -49,15 +51,14 @@ Route::get('/', [App\Http\Controllers\Site\SiteController::class, 'index'])->nam
 
 Auth::routes();
 
-
 Route::get('/', function() {
     return view('site.home.index');
 });
 
 
-Route::get('/home', function() {
-    return view('admin.home.index');
-})->name('home')->middleware('auth');
+// Route::get('/home', function() {
+ //   return view('admin.home.index');
+// })->name('home')->middleware('auth');
 
 Auth::routes();
 
@@ -65,6 +66,29 @@ Auth::routes();
 Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home.admin');
 Route::get('/site/galeria/galeria', [App\Http\Controllers\HomeController::class, 'galeria'])->name('galeria');
 
+// site free
+
+
+Route::namespace('Site')->group(function () {
+    Route::get('/', 'HomeController')->name('site.home.index');
+
+    Route::get('produtos', 'ProductController@index')->name('site.products.index');
+    Route::get('produtos/{slug}', 'ProductController@show')->name('site.products.show');
+
+    Route::get('categoria', 'CategoryController@index')->name('site.category.index');
+
+    Route::get('empresa', 'EmpresaController@index')->name('site.empresa.index');
+
+    Route::get('project','ProjectController@index')->name('site.project.index');
+    Route::get('news','NewsController@index')->name('site.news.index');
+
+    Route::get('blog', 'BlogController@index')->name('site.blog');
+
+    Route::view('sobre', 'site.about.index')->name('site.about');
+
+    Route::get('contato', 'ContactController@index')->name('site.contact');
+    Route::post('contato', 'ContactController@form')->name('site.contact.form');
+});
 
 // CRUD origem
 

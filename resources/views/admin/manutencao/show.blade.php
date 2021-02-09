@@ -5,7 +5,7 @@
     <meta charset="UTF-8">
   
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title>Despesas</title>
+    <title>Excluir Conta</title>
      <!-- Tell the browser to be responsive to screen width -->
   <meta name="viewport" content="width=device-width, initial-scale=1">
 
@@ -42,7 +42,12 @@
 
 
    <!-- Fim do Formulario de despesa_conta --> 
+   <form action="{{ route('manutencao.deletar' ,[ 'despesa' => $despesa->id ])}}" method="POST"  enctype="multipart/form-data">
 
+    @method('DELETE')
+  
+         <div class="form-group">
+         {!! csrf_field() !!}                 
 
 
 <div class="container">
@@ -51,6 +56,10 @@
   </div>
   <div class="row">
     <div class="form-control">{{$despesa->date }}</div>
+  </div>
+  <div class="bg-light">Tipo:</div>
+  <div class="row">
+    <div class="form-control">{{$despesa->type }}</div>
   </div>
   <div class="row">
     <div class="bg-light">Origem:</div>
@@ -77,16 +86,18 @@
                  <div class="form-group">
 
                   <p></p>
-
-
-                  {!! Form::open(['method' => 'DELETE', "{{route('despesa.update' ,[ 'despesa' => $despesa->id ])}}", 'style' => 'display: inline;'])!!}
-
-                  <button type="submit" class="btn btn-danger btn-block">Confirma Exclusão</button>
-
-              {!! Form::close()!!}
+                
+                         
+                
+                           <div class="form-group">
+                                <button type="submit" class="btn btn-outline-danger" >Deletar....</button>
+                           </div>
+                       </div>
+                   </form>
+              
              
 
-              <div class="text-right"> <a href="{{ url('financeiro/despesa/index') }}" class="text-right">Voltar </a> </div>
+              <div class="text-right"> <a href="{{ url('admin.manutencao.index') }}" class="text-right">Voltar </a> </div>
              </div>
             </div>
          <a href="#" id="ancora"></a>

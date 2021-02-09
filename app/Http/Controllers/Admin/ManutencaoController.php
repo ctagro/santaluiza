@@ -134,8 +134,12 @@ class ManutencaoController extends Controller
     public function show(Despesa $despesa)
     {
         $origems = auth()->user()->origem()->get();
+      //  $origems = origem::all();
+     //   $users = user::all();
+        
+    
 
-        return view('admin.manutencao.show',compact('despesa','origems'));
+        return view('admin.manutencao.show',compact('despesa'));
     }
 
     /**
@@ -168,7 +172,7 @@ class ManutencaoController extends Controller
      */
     public function update(Request $request, Despesa $despesa)
     { 
-        
+        // dd("update");
          $dataRequest = $request; 
  
          if ($dataRequest['date'] == null){
@@ -196,11 +200,12 @@ class ManutencaoController extends Controller
      * @return \Illuminate\Http\Response
      */
    
-        public function destroy(despesa $despesa)
+        public function deletar(despesa $despesa)
     {
-
-        dd($despesa);
+       // dd("delete");
         $despesa->delete();
+
+
 
         return redirect('admin/manutencao/index');
     }

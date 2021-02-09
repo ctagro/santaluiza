@@ -4,7 +4,6 @@ namespace App\Models;
 
 use Illuminate\Database\Eloquent\Model;
 use App\Models\Despesa;
-use App\Models\Despesa_conta;
 use Carbon\Carbon;
 use DateTime;
 use DB;

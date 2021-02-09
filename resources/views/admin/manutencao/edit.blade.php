@@ -5,7 +5,7 @@
     <meta charset="UTF-8">
   
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title>Despesas</title>
+    <title>Editar Conta</title>
      <!-- Tell the browser to be responsive to screen width -->
   <meta name="viewport" content="width=device-width, initial-scale=1">
 
@@ -28,7 +28,7 @@
 
 @extends('adminlte::page')
 
-@section('title', 'Despesas')
+@section('title', 'Editar Despesas')
 
 @section('content_header')  
 <div class="row">     
@@ -50,21 +50,31 @@
              @include('admin.manutencao.form')
 
                  <div class="form-group">
-                      <button type="submit" class="btn btn-danger btn-block">Registrar a despesa</button>
+                      <button type="submit" class="btn btn-danger btn-block">Alterar a despesa</button>
                  </div>
              </div>
 
-  <!-- Link para deletar inativo
-    
-             <div class="row justify-content-between" >
+            </form>
 
-              <a href= "{{ route('manutencao.show' ,[ 'despesa' => $despesa->id ])}}" class="btn btn-outline-danger" >Deletar</a>
-   -->
-              <div class="text-right"> <a href="{{ url('admin/manutencao/index') }}" class="text-right">Voltar </a> </div>
-             </div>
-         <a href="#" id="ancora"></a>
-</form>
-                
+             <form action="{{ route('manutencao.show' ,[ 'despesa' => $despesa->id ])}}" method="POST"  enctype="multipart/form-data">
+
+              @method('POST')
+            
+                   <div class="form-group">
+                   {!! csrf_field() !!}                      
+            
+                       <div class="form-group">
+                            <button type="submit" class="btn btn-outline-danger" >Deletar...</button>
+                       </div>
+                   </div>
+               </form>
+            
+
+<div class="text-right"> <a href="{{ url('admin/manutencao/index') }}" class="text-right">Voltar </a> </div>
+</div>
+<a href="#" id="ancora"></a>
+  
+
 
 
 </body>
